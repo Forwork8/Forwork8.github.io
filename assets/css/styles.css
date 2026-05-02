@@ -380,6 +380,14 @@ button { cursor: pointer; }
     display: flex;
     align-items: center;
     gap: 24px;
+    flex-wrap: wrap;
+}
+
+.hero-actions-secondary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .hero-cta {
@@ -2045,22 +2053,33 @@ button { cursor: pointer; }
     .hero { padding: 120px 0 60px; }
 
     .hero-layout {
-        flex-direction: column-reverse;
-        gap: 24px;
+        flex-direction: column;
+        gap: 20px;
         align-items: flex-start;
+        position: relative;
     }
 
     .hero-photo {
-        width: 120px;
-        height: 120px;
+        width: 88px;
+        height: 88px;
         border-radius: var(--radius-lg);
-        align-self: flex-start;
+        flex-shrink: 0;
     }
 
+    /* On tablet/mobile, float the photo top-right within the layout */
     .hero-image {
-        width: 100%;
+        width: auto;
         display: flex;
         justify-content: flex-start;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    /* Hero text needs room on the right for the photo */
+    .hero-text {
+        width: 100%;
+        padding-right: 108px; /* make room for the photo */
     }
 
     .hero-title {
@@ -2076,9 +2095,32 @@ button { cursor: pointer; }
         padding: 5px 10px;
     }
 
+    /* Hero actions: Resume button full-width, secondary links in a row */
     .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .hero-cta {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-actions-secondary {
+        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px 16px;
+        align-items: center;
+    }
+
+    .hero-secondary-cta {
+        font-size: 0.875rem;
+        padding: 8px 0;
+        gap: 5px;
     }
 
     .menu-toggle { display: flex; }
@@ -2266,29 +2308,43 @@ button { cursor: pointer; }
     }
 
     .hero-photo {
-        width: 112px;
-        height: 112px;
+        width: 80px;
+        height: 80px;
         border-radius: var(--radius);
     }
 
+    .hero-text {
+        padding-right: 96px;
+    }
+
     .hero-image {
-        align-self: center;
-        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
     }
 
     .hero-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 10px;
-    }
-
-    .hero-secondary-cta {
-        font-size: 0.8125rem;
+        width: 100%;
     }
 
     .hero-cta {
         font-size: 0.875rem;
         padding: 10px 20px;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-actions-secondary {
+        gap: 12px 16px;
+    }
+
+    .hero-secondary-cta {
+        font-size: 0.8125rem;
     }
 
     .hero-resume {
@@ -3267,11 +3323,37 @@ button { cursor: pointer; }
 
 /* ===== MOBILE VISION-JOBS OVERRIDES ===== */
 @media screen and (max-width: 768px) {
+    /* Hero: stack image (small, top-right) beside badge */
+    .vision-jobs .hero {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+
+    .vision-jobs .hero-layout {
+        flex-direction: column;
+        gap: 0;
+        position: relative;
+    }
+
+    .vision-jobs .hero-text {
+        width: 100%;
+        padding-right: 116px; /* space for the floating photo */
+    }
+
+    .vision-jobs .hero-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+    }
+
     .vision-jobs .hero-photo {
-        width: 100px;
-        max-width: 100px;
-        height: auto;
+        width: 96px;
+        max-width: 96px;
+        height: 96px;
         aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 22px;
     }
 
     .vision-jobs .hero-title {
@@ -3300,6 +3382,30 @@ button { cursor: pointer; }
 
     .vision-jobs .hero-philosophy .philosophy-text {
         font-size: 0.8125rem;
+    }
+
+    /* Hero actions: Resume pill full-width, social links in a neat row */
+    .vision-jobs .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .vision-jobs .hero-cta {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Wrap secondary CTAs in a horizontal flex row */
+    .vision-jobs .hero-actions .hero-secondary-cta {
+        /* Each link sits in a row via parent flex-wrap */
+    }
+
+    /* Put secondary links in their own sub-row */
+    .vision-jobs .hero-actions::after {
+        display: none;
     }
 
     .vision-jobs .section {
@@ -3355,8 +3461,14 @@ button { cursor: pointer; }
 
 @media screen and (max-width: 480px) {
     .vision-jobs .hero-photo {
-        width: 80px;
-        max-width: 80px;
+        width: 76px;
+        max-width: 76px;
+        height: 76px;
+        border-radius: 18px;
+    }
+
+    .vision-jobs .hero-text {
+        padding-right: 92px; /* tighter room for smaller photo */
     }
 
     .vision-jobs .container {
