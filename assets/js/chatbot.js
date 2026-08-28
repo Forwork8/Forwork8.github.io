@@ -27,7 +27,6 @@ const CHATBOT_CONFIG = {
         name: "Adil Shamim",
         title: "AI/ML Engineer & Data Scientist",
         location: "Dhaka, Bangladesh",
-        phone: "+880 1321073452",
         email: "adilshamim696@gmail.com",
         education: "B.Sc. in Computer Science & Engineering — BNIST (February 2023 — Present)",
         experience: "AI/ML Engineer & Data Scientist with 2+ years of hands-on experience building and shipping production LLM systems, RAG pipelines, and agentic workflows.",
@@ -272,7 +271,6 @@ const CHATBOT_CONFIG = {
 - Name: Adil Shamim
 - Title: AI/ML Engineer & Data Scientist
 - Location: Dhaka, Bangladesh
-- Phone: +880 1321073452
 - Email: adilshamim696@gmail.com
 - Education: B.Sc. in Computer Science & Engineering — BNIST (February 2023 — Present)
 - Relevant Coursework: Linear Algebra, Calculus, Probability & Statistics, Data Structures & Algorithms, Operating Systems, Database Systems, System Design, AI, ML, Data Science
@@ -416,10 +414,6 @@ class AdilChatbot {
                     </button>
                 </div>
             </div>
-            
-            <button class="chatbot-toggle-btn active" id="chatbot-toggle">
-                <img src="https://www.toolly.tech/logo/Toolly_logo.png" alt="Toolly" class="chatbot-toggle-logo">
-            </button>
         `;
         
         document.body.insertAdjacentHTML('beforeend', chatbotHTML);
@@ -563,7 +557,7 @@ Try the quick action buttons below or ask me anything! `;
             error.message.includes('insufficient') ||
             error.statusCode === 429
         )) {
-            return "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact Adil directly through the contact section below.\n\n📧 Email: adilshamim696@gmail.com\n📱 Phone: +880 1321073452\n🔗 LinkedIn: https://www.linkedin.com/in/adilshamim8";
+            return "I'm sorry, I'm having trouble connecting right now. Please try again in a moment or contact Adil directly through the contact section below.\n\n📧 Email: adilshamim696@gmail.com\n🔗 LinkedIn: https://www.linkedin.com/in/adilshamim8";
         }
         
         // Check for rate limit errors
@@ -948,7 +942,7 @@ Try the quick action buttons below or ask me anything! `;
         const toggleBtn = document.getElementById('chatbot-toggle');
         
         container.classList.add('hidden');
-        toggleBtn.classList.add('active');
+        toggleBtn?.classList.add('active');
     }
     
     openChatbot() {
@@ -957,7 +951,7 @@ Try the quick action buttons below or ask me anything! `;
         const input = document.getElementById('chatbot-input');
         
         container.classList.remove('hidden');
-        toggleBtn.classList.remove('active');
+        toggleBtn?.classList.remove('active');
         
         // Load welcome message only on first open
         if (!this.hasBeenOpened) {

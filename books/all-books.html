@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books I've Read — Reading Archive | Adil Shamim</title>
+    <meta name="description"
+        content="Here is the document where I’ll keep track of all the books I’ve read. Complete reading archive and categorized list by Adil Shamim.">
+    <meta name="author" content="Adil Shamim">
+    <link rel="canonical" href="https://www.adilshamim.me/books/all-books.html">
+
+    <!-- Google Fonts: Inter (body) + Newsreader (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main site stylesheet -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <!-- Chatbot stylesheet -->
+    <link rel="stylesheet" href="../assets/css/chatbot.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.adilshamim.me/assets/images/Adil.jpeg" type="image/x-icon">
+
+    <style>
+        /* ================================================
+           ALL BOOKS ARCHIVE PAGE STYLES
+        ================================================ */
+        .archive-page {
+            padding-top: 120px;
+            padding-bottom: 100px;
+        }
+
+        .archive-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ── Back button ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+            transform: translateX(-3px);
+        }
+
+        /* ── Page Header ── */
+        .archive-header {
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 36px;
+        }
+
+        .archive-overline {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .archive-title {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .archive-subtitle {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 24px;
+        }
+
+        .archive-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .doc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--bg-secondary);
+            color: var(--text);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .doc-btn:hover {
+            border-color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        /* ── Quick Search Filter ── */
+        .archive-search-wrap {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .archive-search-input {
+            width: 100%;
+            padding: 14px 18px 14px 44px;
+            font-size: 0.95rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .archive-search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light, rgba(99, 102, 241, 0.15));
+        }
+
+        .archive-search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+            pointer-events: none;
+        }
+
+        /* ── Section Blocks ── */
+        .archive-part {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 40px;
+        }
+
+        .part-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: var(--accent);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-top: 28px;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 8px;
+        }
+
+        .category-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .subcategory-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 22px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+        }
+
+        /* ── Book lists ── */
+        .book-items-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+        }
+
+        .book-item-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: background 0.15s ease;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .book-item-row:hover {
+            background: var(--bg-hover, rgba(255, 255, 255, 0.04));
+            color: var(--text);
+        }
+
+        .book-item-bullet {
+            color: var(--accent);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            transform: translateY(-1px);
+        }
+
+        .book-text {
+            flex: 1;
+        }
+
+        .section-separator {
+            border: none;
+            border-top: 1px dashed var(--border-light);
+            margin: 40px 0;
+        }
+
+        @media (max-width: 640px) {
+            .archive-part {
+                padding: 24px 18px;
+            }
+
+            .archive-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">AdilShamim.</a>
+            <div class="nav-right">
+                <ul class="nav-menu" id="primary-menu" aria-label="Primary">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#projects" class="nav-link">Work</a></li>
+                    <li><a href="../index.html#research" class="nav-link">Research</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="../My_Story.html" class="nav-link active">My Story</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu"
+                    aria-controls="primary-menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="archive-page">
+        <div class="archive-container">
+
+            <!-- Back link to story page -->
+            <a href="../My_Story.html" class="back-link">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to My Story
+            </a>
+
+            <!-- Header -->
+            <header class="archive-header">
+                <span class="archive-overline">Reading Log &amp; Document</span>
+                <h1 class="archive-title">Here is the document where I’ll keep track of all the books I’ve read!</h1>
+                <p class="archive-subtitle">A comprehensive archive of every book that has informed my thinking, philosophy, discipline, engineering mindset, and worldview.</p>
+            </header>
+
+            <!-- Search box for instant book lookup -->
+            <div class="archive-search-wrap">
+                <i class="fas fa-search archive-search-icon" aria-hidden="true"></i>
+                <input type="search" id="archive-search" class="archive-search-input"
+                    placeholder="Search any title, author, or category across the list…" aria-label="Search all books">
+            </div>
+
+            <!-- BOOKS LIST -->
+            <section class="archive-part">
+
+                <!-- Life-Changing Non-Fiction & Self-Help -->
+                <h2 class="category-title">Life-Changing Non-Fiction &amp; Self-Help</h2>
+
+                <h3 class="subcategory-title">Mindset, Personal Growth &amp; Philosophy</h3>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Almanack of Naval Ravikant: A Guide to Wealth and Happiness — Eric Jorgenson</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Atomic Habits — James Clear</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Deep Work — Cal Newport</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Power of Now: A Guide to Spiritual Enlightenment — Eckhart Tolle</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Thinking, Fast and Slow — Daniel Kahneman</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The 7 Habits of Highly Effective People — Stephen Covey</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Grit: The Power of Passion and Perseverance — Angela Duckworth</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Four Agreements: A Practical Guide to Personal Freedom — Don Miguel Ruiz</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Ikigai: The Japanese Secret to a Long and Happy Life — Francesc Miralles &amp; H&eacute;ctor Garc&iacute;a</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Totto-Chan: The Little Girl at the Window — Tetsuko Kuroyanagi</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Things You Can See Only When You Slow Down: How to Be Calm in a Busy World — Haemin Sunim</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Courage to Be Disliked — Fumitake Koga &amp; Ichiro Kishimi</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Think Like a Monk: Train Your Mind for Peace and Purpose Every Day — Jay Shetty</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Man's Search for Meaning — Viktor Frankl</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Secret — Rhonda Byrne</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Subtle Art of Not Giving a F*ck — Mark Manson</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Can't Hurt Me: Master Your Mind and Defy the Odds — David Goggins</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Art of Being Alone: Loneliness Was My Cage, Solitude Is My Home — Renuka Gavrani</span></li>
+                </ul>
+
+                <h3 class="subcategory-title">Productivity, Focus &amp; Discipline</h3>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Eat That Frog!: 21 Great Ways to Stop Procrastinating and Get More Done in Less Time — Brian Tracy</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Compound Effect — Darren Hardy</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Dopamine Detox: A Short Guide to Remove Distractions and Get Your Brain to Do Hard Things — Thibaut Meurisse</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Powerful Focus: A 7-Day Plan to Develop Mental Clarity and Build Strong Focus — Thibaut Meurisse</span></li>
+                </ul>
+
+                <h3 class="subcategory-title">Communication, Influence &amp; Human Psychology</h3>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">How to Win Friends and Influence People — Dale Carnegie</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">How to Talk to Anyone — Leil Lowndes</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Influence: The Psychology of Persuasion — Robert Cialdini</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Art of Thinking Clearly — Rolf Dobelli</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The 48 Laws of Power — Robert Greene</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Art of Seduction — Robert Greene</span></li>
+                </ul>
+
+                <h3 class="subcategory-title">Wealth, Money &amp; Success</h3>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Richest Man in Babylon — George S. Clason</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Rich Dad Poor Dad — Robert Kiyosaki &amp; Sharon Lechter</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Psychology of Money — Morgan Housel</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Think and Grow Rich — Napoleon Hill</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Principles — Ray Dalio</span></li>
+                </ul>
+
+                <h3 class="subcategory-title">Entrepreneurship, Leadership &amp; Building</h3>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Rework — David Heinemeier Hansson &amp; Jason Fried</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Start with Why: How Great Leaders Inspire Everyone to Take Action — Simon Sinek</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Zero to One: Notes on Startups, or How to Build the Future — Peter Thiel with Blake Masters</span></li>
+                </ul>
+
+                <h3 class="subcategory-title">Biographies, Stories &amp; Lessons from Great Builders</h3>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Steve Jobs — Walter Isaacson</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Shoe Dog: A Memoir by the Creator of Nike — Phil Knight</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Book of Elon: A Guide to Purpose and Success — Eric Jorgenson</span></li>
+                </ul>
+
+                <h3 class="subcategory-title">Science, History &amp; Big Ideas</h3>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Sapiens: A Brief History of Humankind — Yuval Noah Harari</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">A Brief History of Time — Stephen Hawking</span></li>
+                </ul>
+
+                <hr class="section-separator">
+
+                <!-- World Classics -->
+                <h2 class="category-title">World Classics</h2>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Nineteen Eighty-Four (1984) — George Orwell</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">To Kill a Mockingbird — Harper Lee</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Great Gatsby — F. Scott Fitzgerald</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Moby-Dick — Herman Melville</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Crime and Punishment — Fyodor Dostoevsky</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Anna Karenina — Leo Tolstoy</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Jane Eyre — Charlotte Bront&euml;</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Odyssey — Homer</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Iliad — Homer</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Hamlet — William Shakespeare</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Macbeth — William Shakespeare</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Les Mis&eacute;rables — Victor Hugo</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Count of Monte Cristo — Alexandre Dumas &amp; Auguste Maquet</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Alchemist — Paulo Coelho</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Lord of the Rings — J. R. R. Tolkien</span></li>
+                </ul>
+
+                <hr class="section-separator">
+
+                <!-- World Literature & Modern Fiction -->
+                <h2 class="category-title">World Literature &amp; Modern Fiction</h2>
+                <ul class="book-items-list">
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Kite Runner — Khaled Hosseini</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Stranger — Albert Camus</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Life of Pi — Yann Martel</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Old Man and the Sea — Ernest Hemingway</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Picture of Dorian Gray — Oscar Wilde</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Hitchhiker's Guide to the Galaxy — Douglas Adams</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Frankenstein — Mary Shelley</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Metamorphosis — Franz Kafka</span></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copy">&copy; <span id="current-year"></span> Adil Shamim.</p>
+                <p class="footer-thanks">Thanks for visiting my portfolio website.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adilshamim8" target="_blank" rel="noopener"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" aria-label="Kaggle"><i
+                            class="fab fa-kaggle"></i></a>
+                    <a href="https://adilshamim8.medium.com/" target="_blank" rel="noopener" aria-label="Medium"><i
+                            class="fab fa-medium"></i></a>
+                    <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared site JS (navbar, theme, animations) -->
+    <script src="../assets/js/script.js" defer></script>
+
+    <!-- Live Search Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('archive-search');
+            const items = document.querySelectorAll('.book-item-row');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', function (e) {
+                    const query = e.target.value.toLowerCase().trim();
+                    items.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        if (text.includes(query)) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

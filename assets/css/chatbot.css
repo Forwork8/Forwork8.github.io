@@ -318,44 +318,25 @@
 
 /* Toggle Button */
 .chatbot-toggle-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 52px;
-    height: 52px;
-    background: var(--text);
-    border: none;
-    border-radius: 14px;
-    color: var(--bg);
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 998;
-    transition: all 0.2s ease;
-    animation: none;
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 [data-theme="dark"] .chatbot-toggle-btn {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    display: none !important;
 }
 
 .chatbot-toggle-logo {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
+    display: none !important;
 }
 
 .chatbot-toggle-btn:hover {
-    transform: none;
-    opacity: 0.85;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    display: none !important;
 }
 
 .chatbot-toggle-btn.active {
-    display: flex;
+    display: none !important;
 }
 
 /* Welcome */
