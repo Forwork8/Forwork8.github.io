@@ -30,7 +30,7 @@ const CHATBOT_CONFIG = {
         email: "adilshamim696@gmail.com",
         education: "B.Sc. in Computer Science & Engineering — BNIST (February 2023 — Present)",
         experience: "AI/ML Engineer & Data Scientist with 2+ years of hands-on experience building and shipping production LLM systems, RAG pipelines, and agentic workflows.",
-        kaggleStatus: "Kaggle Master — Top 1% (29/4,082) in Road Accident Risk. Completed 22 competitions.",
+        kaggleStatus: "Kaggle Master — Top 1% (29/4,082) in Road Accident Risk. Completed 30 competitions.",
         languages: ["English (Fluent — IELTS in progress)", "Bengali (Native)", "Hindi (Conversational)"],
         
         bio: `I'm Adil Shamim — an AI/ML Engineer and Data Scientist with over two years of hands-on experience. I build practical ML systems that ship: production RAG pipelines, agentic workflows, Dockerized inference services, and tracked experiments that teams actually use. I built a recommendation engine that delivered a verified +10% client sales lift in 90 days. I founded Toolly — a live AI tools platform with 400+ tools, built and maintained solo. I'm a Kaggle Master (Top 1%, 29/4,082 in Road Accident Risk) and a published 1st-author researcher in Bengali speech AI (56% inference speedup, BUET CSE Fest 2026). I'm comfortable across the full AI stack: multi-provider LLM orchestration, vector databases, agent architecture, Dockerized deployment, and production monitoring.`,
@@ -152,6 +152,8 @@ const CHATBOT_CONFIG = {
             kaggle: "https://www.kaggle.com/adilshamim8",
             twitter: "https://x.com/adil_shamim8",
             medium: "https://adilshamim8.medium.com/",
+            bluesky: "https://bsky.app/profile/adilshamim8.bsky.social",
+            substack: "https://substack.com/@adilshamim",
             toolly: "https://www.toolly.tech/",
             researchgate: "https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
         },
@@ -199,7 +201,7 @@ const CHATBOT_CONFIG = {
                 responsibilities: [
                     "Top 1% globally — Rank 29/4,082 in Predicting Road Accident Risk.",
                     "Top 2% — Rank 38/2,581 in Predicting BPM of Songs.",
-                    "Completed 22 competitions. Published ML notebooks and datasets; hosted competitions to engage the community."
+                    "Completed 30 competitions. Published ML notebooks and datasets; hosted competitions to engage the community."
                 ]
             }
         ],
@@ -212,7 +214,7 @@ const CHATBOT_CONFIG = {
             "Machine Learning Pipelines with Azure ML Studio (Coursera)"
         ],
         kaggleAchievements: [
-            "Kaggle Master (22 competitions completed)",
+            "Kaggle Master (30 competitions completed)",
             "Predicting Road Accident Risk — Top 1% (29/4,082 participants)",
             "Predicting Beats-per-Minute of Songs — Ranked Top 2% (38/2,581 participants)",
             "Published ML notebooks and datasets; hosted competitions to engage the community."
@@ -305,7 +307,7 @@ AI/ML Engineer & Data Scientist with 2+ years of experience building and shippin
 1. Founder & AI/ML Engineer — Toolly (Jun 2025 — Present): Designed and shipped toolly.tech — live AI tools directory with 400+ tools, 15 categories, community submission pipeline, Learn AI hub. 206+ commits. Built Toolly Studio (Streamlit + Bria AI image gen). URL: https://www.toolly.tech
 2. 1st Author — Conference Paper (BUET CSE Fest 2026): "Bangla Diarizz" — Bengali speaker diarization with 56% inference speedup. ResearchGate: https://www.researchgate.net/publication/401194830
 3. ML Engineer — Independent Contractor (Jan–May 2025): Built hybrid recommendation engine (ALS + TF-IDF). Deployed as Flask API. Verified +10% client sales lift in 90 days.
-4. Kaggle Master: Top 1% (29/4,082) in Road Accident Risk. Top 2% in BPM prediction (38/2,581). 22 competitions completed. Published notebooks and hosted competitions.
+4. Kaggle Master: Top 1% (29/4,082) in Road Accident Risk. Top 2% in BPM prediction (38/2,581). 30 competitions completed. Published notebooks and hosted competitions.
 
 **CERTIFICATIONS:**
 - Machine Learning — Stanford University (Coursera)
@@ -627,7 +629,7 @@ Try the quick action buttons below or ask me anything! `;
                 "Quick profile summary:",
                 "• 2+ years of hands-on AI/ML Engineering experience",
                 "• Freelance AI/ML Engineer (July 2025—Present)",
-                "• Kaggle Master with 22 completed competitions",
+                "• Kaggle Master with 30 completed competitions",
                 "• B.Sc. in Computer Science & Engineering at BNIST (Feb 2023—Present)",
                 "• Certifications include Stanford ML, Harvard CS50, IBM Python for DS/AI, and Microsoft GenAI essentials"
             ].join('\n');

@@ -73,13 +73,14 @@
     <!-- Navigation -->
     <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#index.html" class="nav-logo" aria-label="Adil Shamim — Home">AdilShamim.</a>
+            <a href="index.html" class="nav-logo" aria-label="Adil Shamim — Home">AdilShamim.</a>
             <div class="nav-right">
                 <ul class="nav-menu" id="primary-menu" aria-label="Primary navigation">
                     <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#blog" class="nav-link">Writing</a></li>
+                    <li><a href="#experience" class="nav-link">Career</a></li>
                     <li><a href="#projects" class="nav-link">Work</a></li>
                     <li><a href="#research" class="nav-link">Research</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                     <li><a href="My_Story.html" class="nav-link">My Story</a></li>
                 </ul>
@@ -100,79 +101,201 @@
 
         <!-- Hero Section -->
         <section id="home" class="hero">
+            <span id="about" class="section-anchor" style="position: absolute; top: -80px;"></span>
             <div class="container">
                 <div class="hero-layout">
                     <div class="hero-text">
-                        <!-- Availability pill -->
-                        <div class="hero-badge fade-in">
-                            <span class="hero-badge-dot"></span>
-                            Available for AI/ML roles
+                        <h1 class="hero-title fade-in delay-1">Adil Shamim is an AI Engineer and founder.</h1>
+
+                        <div class="hero-profile-bio fade-in delay-2">
+                            <p>He founded <a href="https://rewoo.tech/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight: 600; color: var(--text);">ReWoo</a> — an AI-workforce startup that deploys autonomous agents to run entire business functions for companies. First paying client in 10 days. That client was in the UK.</p>
+                            <p>Before ReWoo, he built and ran <a href="https://www.toolly.tech/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight: 600; color: var(--text);">Toolly</a> — an AI tools discovery platform with 400+ curated tools, a community submission pipeline, and a Learn AI hub. Built solo. Maintained for 11 months. Then open-sourced entirely.</p>
+                            <p>He is the first author of a published research paper on Bengali speaker diarization, presented at BUET CSE Fest 2026, achieving 56% inference speedup — making speech AI accessible to 230 million speakers who had almost nothing built for them. He is a <strong>Kaggle Master</strong>, ranked in the top 1% globally across 4,082 competitors.</p>
+                            <p>He currently serves as AI Engineer and CTO on the founding team of a UK-based fintech startup — building production Finance AI agents that handle real money and real consequences.</p>
                         </div>
-                        <div class="hero-cred-row fade-in delay-1" role="list" aria-label="Key credentials">
-                            <a class="hero-cred-pill" role="listitem" href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener">Top 1% Kaggle (29/4,082)</a>
-                            <a class="hero-cred-pill" role="listitem" href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio" target="_blank" rel="noopener">First-author paper</a>
-                            <a class="hero-cred-pill" role="listitem" href="#projects">Shipped production ML</a>
-                            <span class="hero-cred-pill" role="listitem">Agentic Workflows</span>
-                        </div>
-                        <h1 class="hero-title fade-in delay-1"><span class="hero-title-line">AI/ML Engineer.</span><span class="hero-title-line hero-title-line--secondary">Built for production.</span></h1>
-                        <p class="hero-subtitle fade-in delay-2">I build robust, scalable machine learning systems, advanced RAG pipelines, and autonomous agentic workflows that deliver real-world impact.</p>
-                        <p class="hero-description fade-in delay-2">AI/ML Engineer & Founder. First-author researcher (BUET CSE Fest 2026). <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" style="text-decoration: underline;">Kaggle Top 1%</a> (29/4,082 in Road Accident Risk). Deployed a recommendation engine that delivered +10% client sales lift in 90 days.</p>
-                        <!-- TODO: insert client testimonial — e.g., "— VP of Operations, Retail Client" -->
+
                         <div class="philosophy-content hero-philosophy fade-in delay-3">
                             <h2 class="philosophy-heading">Design Principle</h2>
-                            <p class="philosophy-text">Build → Deploy → Measure → Improve. Great AI systems are
-                                reliable, observable, and cost-effective under real constraints.</p>
-                            <p class="philosophy-text">I optimize for what matters in production: evaluation quality,
-                                inference latency, and system trust.</p>
+                            <p class="philosophy-text" style="font-weight: 600; font-size: 1.08rem; color: var(--text); margin-bottom: 0.5rem;">Build it. Ship it. Make it earn.</p>
+                            <p class="philosophy-text">Every system he touches must be reliable, observable, and defensible under real constraints. Not impressive in a notebook. Useful in the world.</p>
                         </div>
                         <div class="hero-actions fade-in delay-3">
-                            <a href="assets\docs\AdilShamim_Resume.pdf" class="hero-cta" target="_blank"
+                            <a href="assets/docs/AdilShamim_Resume.pdf" class="hero-cta" target="_blank"
                                 rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Resume</a>
                             <div class="hero-actions-secondary">
                                 <a href="https://github.com/AdilShamim8" class="hero-secondary-cta" target="_blank"
                                     rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="https://www.linkedin.com/in/adilshamim8" class="hero-secondary-cta" target="_blank"
-                                    rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                                <a href="#contact" class="hero-secondary-cta"><i class="fas fa-envelope"></i> Let's Talk</a>
+                                <a href="https://www.linkedin.com/in/adilshamim8" class="hero-secondary-cta"
+                                    target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>
+                                    LinkedIn</a>
+                                <a href="#contact" class="hero-secondary-cta"><i class="fas fa-envelope"></i> Let's
+                                    Talk</a>
                             </div>
                         </div>
                     </div>
                     <div class="hero-image fade-in delay-2">
-                            <img src="assets/images/Adil.jpeg"
-                                alt="Adil Shamim — AI/ML Engineer and Founder specializing in Production Systems and Agentic AI"
-                                class="hero-photo" loading="eager" decoding="async">
+                        <img src="assets/images/Adil.jpeg"
+                            alt="Adil Shamim — AI/ML Engineer and Founder specializing in Production Systems and Agentic AI"
+                            class="hero-photo" loading="eager" decoding="async">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="philosophy" class="section" aria-labelledby="philosophy-heading">
+        <!-- Blog / Writing Section -->
+        <section id="blog" class="section">
             <div class="container">
-                <p class="sj-section-eyebrow">Philosophy</p>
-                <h2 id="philosophy-heading" class="section-title sj-section-title-tight">Hard truths about building AI
-                    that ships.</h2>
-                <div class="sj-philosophy-grid">
-                    <article class="sj-philosophy-item reveal">
-                        <span class="sj-phil-num" aria-hidden="true">01</span>
-                        <h3 class="sj-phil-title">Evaluation is the real skill.</h3>
-                        <p class="sj-phil-body">Anyone can call an API. The hard part is knowing whether it
-                            works — golden datasets, hallucination detection, LLM-as-judge, and drift monitoring
-                            are what separate prototypes from systems you can trust in production.</p>
-                    </article>
-                    <article class="sj-philosophy-item reveal">
-                        <span class="sj-phil-num" aria-hidden="true">02</span>
-                        <h3 class="sj-phil-title">Production thinking beats accuracy.</h3>
-                        <p class="sj-phil-body">A model that scores 0.95 in a notebook but can't handle latency,
-                            cost, or scale is a liability. I optimize for the full stack: serving, observability,
-                            failure modes, and the infrastructure that keeps AI reliable under real load.</p>
-                    </article>
-                    <article class="sj-philosophy-item reveal">
-                        <span class="sj-phil-num" aria-hidden="true">03</span>
-                        <h3 class="sj-phil-title">Ship, don't slide.</h3>
-                        <p class="sj-phil-body">95% of AI roles are applied, not research. I focus on end-to-end
-                            delivery — from data pipeline to deployed API — because companies hire engineers
-                            who can build, deploy, scale, and measure. Not just present.</p>
-                    </article>
+                <div class="section-header-row">
+                    <h2 class="section-title">Writing</h2>
+                </div>
+                <div class="blog-list">
+                    <!-- 1. AI Adil -->
+                    <a href="https://aiadil.substack.com/" class="blog-item reveal" target="_blank"
+                        rel="noopener noreferrer">
+                        <div class="blog-item-main">
+                            <span class="blog-item-title">AI ADIL</span>
+                            <span class="blog-item-desc">Technical newsletter on autonomous agentic workflows, attention
+                                mechanisms, production ML pipelines, and next-gen AI engineering.</span>
+                        </div>
+                        <div class="blog-item-meta-wrap">
+                            <span class="blog-item-badge">Substack</span>
+                            <i class="fas fa-arrow-up-right-from-square blog-item-arrow" aria-hidden="true"></i>
+                        </div>
+                    </a>
+
+                    <!-- 2. Adil's Archive -->
+                    <a href="https://adilshamim.substack.com/" class="blog-item reveal" target="_blank"
+                        rel="noopener noreferrer">
+                        <div class="blog-item-main">
+                            <span class="blog-item-title">Adil's Archive</span>
+                            <span class="blog-item-desc">Personal essays, mental models for engineers, life reflections,
+                                book syntheses, and philosophies on building with intent.</span>
+                        </div>
+                        <div class="blog-item-meta-wrap">
+                            <span class="blog-item-badge">Substack</span>
+                            <i class="fas fa-arrow-up-right-from-square blog-item-arrow" aria-hidden="true"></i>
+                        </div>
+                    </a>
+
+                    <!-- 3. Medium -->
+                    <a href="https://medium.com/@adilshamim8" class="blog-item reveal" target="_blank"
+                        rel="noopener noreferrer">
+                        <div class="blog-item-main">
+                            <span class="blog-item-title">Medium Publication</span>
+                            <span class="blog-item-desc">In-depth technical guides, 50+ LLM interview questions, prompt
+                                engineering playbooks, and production ML cheatsheets.</span>
+                        </div>
+                        <div class="blog-item-meta-wrap">
+                            <span class="blog-item-badge">Medium</span>
+                            <i class="fas fa-arrow-up-right-from-square blog-item-arrow" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <p class="arc-eyebrow">CAREER</p>
+                <div class="section-header-row arc-header">
+                    <h2 class="arc-title">The arc.</h2>
+                </div>
+
+                <div class="arc-timeline">
+
+                    <div class="arc-item reveal">
+                        <div class="arc-year">Jun 2026</div>
+                        <div class="arc-divider">
+                            <div class="arc-dot"></div>
+                            <div class="arc-line"></div>
+                        </div>
+                        <div class="arc-content">
+                            <div class="arc-content-header">
+                                <h3 class="arc-role">Founder</h3>
+                                <span class="arc-badge badge-light">startup</span>
+                            </div>
+                            <p class="arc-company">ReWoo</p>
+                            <p class="arc-desc">Founded <a href="https://rewoo.tech/" target="_blank" rel="noopener"
+                                    style="text-decoration: underline;">ReWoo</a>, an AI startup engineering autonomous
+                                agentic workflows and multi-step reasoning systems. Leading architecture design for
+                                production LLM orchestration, stateful agent graphs (LangGraph), and enterprise AI
+                                automations.</p>
+                        </div>
+                    </div>
+
+                    <div class="arc-item reveal">
+                        <div class="arc-year">2026</div>
+                        <div class="arc-divider">
+                            <div class="arc-dot"></div>
+                            <div class="arc-line"></div>
+                        </div>
+                        <div class="arc-content">
+                            <div class="arc-content-header">
+                                <h3 class="arc-role">Chief Technology Officer (CTO)</h3>
+                                <span class="arc-badge badge-light">leadership</span>
+                            </div>
+                            <p class="arc-company">UK-based Startup (Remote)</p>
+                            <div class="arc-desc">
+                                <ul
+                                    style="margin: 0; padding-left: 1.15rem; display: flex; flex-direction: column; gap: 6px;">
+                                    <li><strong>Jan – Feb 2026 (AI Intern):</strong> Built initial ML proof-of-concepts,
+                                        automated data ingestion pipelines, and benchmarked model inference.</li>
+                                    <li><strong>Mar – Aug 2026 (AI Engineer):</strong> Promoted to full engineer;
+                                        architected containerized FastAPI microservices, RAG pipelines, and production
+                                        deployments on AWS.</li>
+                                    <li><strong>Present (CTO):</strong> Appointed Chief Technology Officer to lead
+                                        overall technical strategy, AI systems architecture, and engineering execution.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arc-item reveal">
+                        <div class="arc-year">2026</div>
+                        <div class="arc-divider">
+                            <div class="arc-dot"></div>
+                            <div class="arc-line"></div>
+                        </div>
+                        <div class="arc-content">
+                            <div class="arc-content-header">
+                                <h3 class="arc-role">First-Author Research Paper Published</h3>
+                                <span class="arc-badge badge-dark">publication</span>
+                            </div>
+                            <p class="arc-company">BUET CSE Fest 2026</p>
+                            <p class="arc-desc"><strong>Bangla Diarizz:</strong> Domain-Adapted Bengali Speaker
+                                Diarization via Knowledge Distillation. Achieved state-of-the-art DER 0.19 (dev) / 0.286
+                                (private LB) with a distilled student model delivering a <strong>56% inference
+                                    speedup</strong> and running <strong>3.4× real-time on CPU</strong> for
+                                resource-constrained deployments. <a
+                                    href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
+                                    target="_blank" rel="noopener" style="text-decoration: underline;">Preprint on
+                                    ResearchGate →</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="arc-item reveal">
+                        <div class="arc-year">2025</div>
+                        <div class="arc-divider">
+                            <div class="arc-dot"></div>
+                            <!-- No line for the last item -->
+                        </div>
+                        <div class="arc-content">
+                            <div class="arc-content-header">
+                                <h3 class="arc-role">Founder</h3>
+                                <span class="arc-badge badge-light">startup</span>
+                            </div>
+                            <p class="arc-company">Toolly</p>
+                            <p class="arc-desc">Architected, launched, and scaled <a href="https://www.toolly.tech/"
+                                    target="_blank" rel="noopener" style="text-decoration: underline;">toolly.tech</a> —
+                                an AI discovery platform featuring 400+ curated tools across 15 categories, an automated
+                                moderation pipeline, and an integrated Learn AI hub. Built solo across 200+ commits;
+                                engineered Toolly Studio (Dockerized image generation with Streamlit &amp; Bria AI).</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -194,73 +317,57 @@
                 <!-- SEO: noscript fallback for crawlers -->
                 <noscript>
                     <ul>
-                        <li><strong>Bangla Diarizz</strong> — Production-grade Bengali speaker diarization. DER 0.19 (dev) / 0.286 (private LB). 56% inference speedup. <a href="https://github.com/AdilShamim8/Bangla-Diarizz">GitHub</a></li>
-                        <li><strong>Production-Grade RAG</strong> — Multi-provider RAG pipeline with Qdrant, idempotent ingestion. <a href="https://github.com/AdilShamim8/Production-grade-RAG">GitHub</a></li>
-                        <li><strong>QuantScope</strong> — Quantitative stock analysis, 6-provider LLM fallback, 33 tests. <a href="https://github.com/AdilShamim8/QuantScope">GitHub</a></li>
-                        <li><strong>Production ML Pipeline</strong> — ZenML + MLflow end-to-end pipeline, Dockerized FastAPI serving. <a href="https://github.com/AdilShamim8/Prices_Predictor_System">GitHub</a></li>
-                        <li><strong>Training Data Bot</strong> — Automated fine-tuning dataset pipeline from PDF/text/URL. <a href="https://github.com/AdilShamim8/Training-Data-Bot">GitHub</a></li>
-                        <li><strong>NeuroBridge</strong> — Agentic middleware bridging LLMs with real-world APIs. <a href="https://github.com/AdilShamim8/NeuroBridge">GitHub</a></li>
-                        <li><strong>Transformer Architecture (nanoGPT)</strong> — GPT-2 reproduction from scratch in PyTorch. <a href="https://github.com/AdilShamim8/GPT-2-Rebuild-nanoGPT">GitHub</a></li>
+                        <li><strong>Bangla Diarizz</strong> — Production-grade Bengali speaker diarization. DER 0.19
+                            (dev) / 0.286 (private LB). 56% inference speedup. <a
+                                href="https://github.com/AdilShamim8/Bangla-Diarizz">GitHub</a></li>
+                        <li><strong>Production-Grade RAG</strong> — Multi-provider RAG pipeline with Qdrant, idempotent
+                            ingestion. <a href="https://github.com/AdilShamim8/Production-grade-RAG">GitHub</a></li>
+                        <li><strong>QuantScope</strong> — Quantitative stock analysis, 6-provider LLM fallback, 33
+                            tests. <a href="https://github.com/AdilShamim8/QuantScope">GitHub</a></li>
+                        <li><strong>Production ML Pipeline</strong> — ZenML + MLflow end-to-end pipeline, Dockerized
+                            FastAPI serving. <a href="https://github.com/AdilShamim8/Prices_Predictor_System">GitHub</a>
+                        </li>
+                        <li><strong>Training Data Bot</strong> — Automated fine-tuning dataset pipeline from
+                            PDF/text/URL. <a href="https://github.com/AdilShamim8/Training-Data-Bot">GitHub</a></li>
+                        <li><strong>NeuroBridge</strong> — Agentic middleware bridging LLMs with real-world APIs. <a
+                                href="https://github.com/AdilShamim8/NeuroBridge">GitHub</a></li>
+                        <li><strong>Transformer Architecture (nanoGPT)</strong> — GPT-2 reproduction from scratch in
+                            PyTorch. <a href="https://github.com/AdilShamim8/GPT-2-Rebuild-nanoGPT">GitHub</a></li>
                     </ul>
                 </noscript>
             </div>
         </section>
 
-        <!-- AI Engineer Section -->
-        <section id="ai-engineer" class="section" aria-labelledby="ai-engineer-heading">
+        <!-- Research Section -->
+        <section id="research" class="section sj-section-research" aria-labelledby="research-heading">
             <div class="container">
-                <p class="sj-section-eyebrow">Curriculum</p>
-                <h2 id="ai-engineer-heading" class="section-title sj-section-title-tight">Learn by Doing. Become an AI Engineer.</h2>
-                <p class="sj-phil-body reveal" style="margin-bottom: 3rem; max-width: 800px;">
-                    A structured, project-driven curriculum of production-grade AI systems. Each project is numbered, open-source, and designed to take you from zero to shipping real AI in the real world.
-                </p>
-                <div class="ai-engineer-table-wrap reveal">
-                    <table class="ai-engineer-table" role="table" aria-label="Production AI Systems curriculum">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Project</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Tags</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="ae-num">101</td>
-                                <td class="ae-project"><a href="https://github.com/AdilShamim8/LLM-Playground-101" target="_blank" rel="noopener noreferrer">LLM Playground</a></td>
-                                <td class="ae-desc">Production-level large language model training and deployment framework</td>
-                                <td class="ae-tags"><span class="ae-tag">LLM</span><span class="ae-tag">Training</span><span class="ae-tag">MLOps</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ae-num">102</td>
-                                <td class="ae-project"><a href="https://github.com/AdilShamim8/Customer-Support-Chatbot-102" target="_blank" rel="noopener noreferrer">Customer Support Chatbot</a></td>
-                                <td class="ae-desc">Production-ready AI customer support with RAG, hybrid search, reranking, and PEFT fine-tuning</td>
-                                <td class="ae-tags"><span class="ae-tag">RAG</span><span class="ae-tag">Production</span><span class="ae-tag">LLM</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ae-num">103</td>
-                                <td class="ae-project"><a href="https://github.com/AdilShamim8/Ask-the-Web-103" target="_blank" rel="noopener noreferrer">Ask the Web</a></td>
-                                <td class="ae-desc">Perplexity-like AI agent with ReACT/ReWOO/Reflexion reasoning, MCP &amp; A2A protocols, and multi-agent orchestration</td>
-                                <td class="ae-tags"><span class="ae-tag">Agents</span><span class="ae-tag">Search</span><span class="ae-tag">RAG</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ae-num">104</td>
-                                <td class="ae-project"><a href="https://github.com/AdilShamim8/Deep-Research-104" target="_blank" rel="noopener noreferrer">Deep Research</a></td>
-                                <td class="ae-desc">Deep research AI using web search, OpenAI o3, and DeepSeek-R1 with inference-time scaling</td>
-                                <td class="ae-tags"><span class="ae-tag">Research</span><span class="ae-tag">LLM</span><span class="ae-tag">Agents</span></td>
-                            </tr>
-                            <tr>
-                                <td class="ae-num">105</td>
-                                <td class="ae-project"><a href="https://github.com/AdilShamim8/Multi-Modal-105" target="_blank" rel="noopener noreferrer">Multi-Modal Generation</a></td>
-                                <td class="ae-desc">Production T2I and T2V synthesis with full VAE, GAN, DiT, and DDPM/DDIM/DPM-Solver++ implementation</td>
-                                <td class="ae-tags"><span class="ae-tag">T2I</span><span class="ae-tag">T2V</span><span class="ae-tag">Diffusion</span><span class="ae-tag">DL</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="ae-cta reveal">
-                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener noreferrer" class="hero-secondary-cta"><i class="fab fa-github"></i> View All on GitHub</a>
-                </div>
+                <p class="sj-section-eyebrow">Research</p>
+                <h2 id="research-heading" class="section-title sj-section-title-tight">Published work</h2>
+                <article class="sj-research-card reveal">
+                    <div class="sj-research-meta">
+                        <span>2026</span>
+                        <span>BUET CSE Fest 2026</span>
+                        <span>First author</span>
+                        <span>Speech · low-resource AI</span>
+                    </div>
+                    <h3 class="sj-research-title">Domain-adapted Bengali speaker diarization via knowledge distillation
+                    </h3>
+                    <p class="sj-research-abstract">A lightweight pipeline for Bengali long-form audio that reaches
+                        <strong>DER 0.19 (dev) / 0.286 (private LB)</strong>, with a distilled student model that runs
+                        at <strong>3.4× real-time on
+                            CPU</strong> and roughly <strong>56% faster inference</strong> than the baseline — aimed at
+                        deployments without heavy GPU infrastructure.
+                    </p>
+                    <div class="sj-research-tags">
+                        <span>Speaker diarization</span>
+                        <span>Knowledge distillation</span>
+                        <span>Bengali NLP</span>
+                        <span>PyTorch</span>
+                    </div>
+                    <a href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
+                        class="sj-research-link" target="_blank" rel="noopener">Preprint on ResearchGate <span
+                            aria-hidden="true">↗</span></a>
+                </article>
             </div>
         </section>
 
@@ -339,241 +446,80 @@
             </div>
         </section>
 
-        <!-- Blog / Writing Section -->
-        <section id="blog" class="section">
+        <!-- AI Engineer Section (Curriculum) -->
+        <section id="ai-engineer" class="section" aria-labelledby="ai-engineer-heading">
             <div class="container">
-                <div class="section-header-row">
-                    <h2 class="section-title">Writing</h2>
+                <p class="sj-section-eyebrow">Curriculum</p>
+                <h2 id="ai-engineer-heading" class="section-title sj-section-title-tight">Learn by Doing. Become an AI
+                    Engineer.</h2>
+                <p class="sj-phil-body reveal" style="margin-bottom: 3rem; max-width: 800px;">
+                    A structured, project-driven curriculum of production-grade AI systems. Each project is numbered,
+                    open-source, and designed to take you from zero to shipping real AI in the real world.
+                </p>
+                <div class="ai-engineer-table-wrap reveal">
+                    <table class="ai-engineer-table" role="table" aria-label="Production AI Systems curriculum">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Project</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Tags</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="ae-num">101</td>
+                                <td class="ae-project"><a href="https://github.com/AdilShamim8/LLM-Playground-101"
+                                        target="_blank" rel="noopener noreferrer">LLM Playground</a></td>
+                                <td class="ae-desc">Production-level large language model training and deployment
+                                    framework</td>
+                                <td class="ae-tags"><span class="ae-tag">LLM</span><span
+                                        class="ae-tag">Training</span><span class="ae-tag">MLOps</span></td>
+                            </tr>
+                            <tr>
+                                <td class="ae-num">102</td>
+                                <td class="ae-project"><a
+                                        href="https://github.com/AdilShamim8/Customer-Support-Chatbot-102"
+                                        target="_blank" rel="noopener noreferrer">Customer Support Chatbot</a></td>
+                                <td class="ae-desc">Production-ready AI customer support with RAG, hybrid search,
+                                    reranking, and PEFT fine-tuning</td>
+                                <td class="ae-tags"><span class="ae-tag">RAG</span><span
+                                        class="ae-tag">Production</span><span class="ae-tag">LLM</span></td>
+                            </tr>
+                            <tr>
+                                <td class="ae-num">103</td>
+                                <td class="ae-project"><a href="https://github.com/AdilShamim8/Ask-the-Web-103"
+                                        target="_blank" rel="noopener noreferrer">Ask the Web</a></td>
+                                <td class="ae-desc">Perplexity-like AI agent with ReACT/ReWOO/Reflexion reasoning, MCP
+                                    &amp; A2A protocols, and multi-agent orchestration</td>
+                                <td class="ae-tags"><span class="ae-tag">Agents</span><span
+                                        class="ae-tag">Search</span><span class="ae-tag">RAG</span></td>
+                            </tr>
+                            <tr>
+                                <td class="ae-num">104</td>
+                                <td class="ae-project"><a href="https://github.com/AdilShamim8/Deep-Research-104"
+                                        target="_blank" rel="noopener noreferrer">Deep Research</a></td>
+                                <td class="ae-desc">Deep research AI using web search, OpenAI o3, and DeepSeek-R1 with
+                                    inference-time scaling</td>
+                                <td class="ae-tags"><span class="ae-tag">Research</span><span
+                                        class="ae-tag">LLM</span><span class="ae-tag">Agents</span></td>
+                            </tr>
+                            <tr>
+                                <td class="ae-num">105</td>
+                                <td class="ae-project"><a href="https://github.com/AdilShamim8/Multi-Modal-105"
+                                        target="_blank" rel="noopener noreferrer">Multi-Modal Generation</a></td>
+                                <td class="ae-desc">Production T2I and T2V synthesis with full VAE, GAN, DiT, and
+                                    DDPM/DDIM/DPM-Solver++ implementation</td>
+                                <td class="ae-tags"><span class="ae-tag">T2I</span><span class="ae-tag">T2V</span><span
+                                        class="ae-tag">Diffusion</span><span class="ae-tag">DL</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="blog-list">
-                    <!-- 1. AI Adil -->
-                    <a href="https://aiadil.substack.com/" class="blog-item reveal" target="_blank" rel="noopener noreferrer">
-                        <div class="blog-item-main">
-                            <span class="blog-item-title">AI Adil</span>
-                            <span class="blog-item-desc">Exploring AI engineering, production ML pipelines, agentic workflows &amp; speech AI systems</span>
-                        </div>
-                        <div class="blog-item-meta-wrap">
-                            <span class="blog-item-badge">Substack</span>
-                            <i class="fas fa-arrow-up-right-from-square blog-item-arrow" aria-hidden="true"></i>
-                        </div>
-                    </a>
-
-                    <!-- 2. Adil's Archive -->
-                    <a href="https://adilshamim.substack.com/" class="blog-item reveal" target="_blank" rel="noopener noreferrer">
-                        <div class="blog-item-main">
-                            <span class="blog-item-title">Adil's Archive</span>
-                            <span class="blog-item-desc">Personal essays, mental models, books I'm reading &amp; reflections on life and engineering</span>
-                        </div>
-                        <div class="blog-item-meta-wrap">
-                            <span class="blog-item-badge">Substack</span>
-                            <i class="fas fa-arrow-up-right-from-square blog-item-arrow" aria-hidden="true"></i>
-                        </div>
-                    </a>
-
-                    <!-- 3. Medium -->
-                    <a href="https://medium.com/@adilshamim8" class="blog-item reveal" target="_blank" rel="noopener noreferrer">
-                        <div class="blog-item-main">
-                            <span class="blog-item-title">Medium</span>
-                            <span class="blog-item-desc">Deep-dive technical articles, architecture teardowns, ML cheatsheets &amp; engineering guides</span>
-                        </div>
-                        <div class="blog-item-meta-wrap">
-                            <span class="blog-item-badge">Medium</span>
-                            <i class="fas fa-arrow-up-right-from-square blog-item-arrow" aria-hidden="true"></i>
-                        </div>
-                    </a>
+                <div class="ae-cta reveal">
+                    <a href="https://github.com/AdilShamim8" target="_blank" rel="noopener noreferrer"
+                        class="hero-secondary-cta"><i class="fab fa-github"></i> View All on GitHub</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <div class="section-header-row">
-                    <h2 class="section-title">Profile</h2>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>I'm an AI/ML Engineer from Dhaka, Bangladesh. My journey started during Computer Science
-                            studies at BNIST, where courses in linear algebra, probability, and data structures sparked
-                            a deep curiosity about how machines learn from data. That curiosity turned into 2+ years of
-                            building production ML systems — from end-to-end pipelines with ZenML and MLflow to
-                            Dockerized inference services with FastAPI.</p>
-                        <p>I am an AI/ML Engineer and founder with a strong focus on production-ready systems. I hold a <strong>Kaggle Master rank</strong> (across 26 competitions) and published a first-author conference paper on efficient speaker diarization (BUET CSE Fest 2026). As an entrepreneur, I launched <a href="https://www.toolly.tech/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight: 600; color: var(--text);">Toolly</a>—an AI tool discovery platform—and <a href="https://rewoo.tech/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight: 600; color: var(--text);">ReWoo</a> (2026), an AI startup building advanced agentic workflows and AI solutions. Alongside my ventures, I work remotely as an AI Engineer for a UK-based company, building robust AI products. In my past work, I deployed a recommender system that delivered a 10% sales lift for a client in 3 months.</p>
-                        <p>When I'm not training models, I explore the frontier of Generative AI — LLMs, RAG pipelines,
-                            and LangChain/LangGraph agents. I believe the best ML work happens at the intersection of
-                            strong engineering and genuine curiosity.</p>
-                    </div>
-
-                    <div class="about-education">
-                        <h3 class="about-subsection-title">Education</h3>
-                        <div class="experience-list">
-                            <div class="exp-item">
-                                <div class="exp-header">
-                                    <div>
-                                        <h4 class="exp-role">B.Sc. in Computer Science &amp; Engineering</h4>
-                                        <p class="exp-company">BNIST</p>
-                                    </div>
-                                    <span class="exp-date">Feb 2023 — Present</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="section">
-            <div class="container">
-                <p class="arc-eyebrow">CAREER</p>
-                <div class="section-header-row arc-header">
-                    <h2 class="arc-title">The arc.</h2>
-                </div>
-
-                <div class="arc-timeline">
-
-                    <div class="arc-item reveal">
-                        <div class="arc-year">Jun 2026</div>
-                        <div class="arc-divider">
-                            <div class="arc-dot"></div>
-                            <div class="arc-line"></div>
-                        </div>
-                        <div class="arc-content">
-                            <div class="arc-content-header">
-                                <h3 class="arc-role">Founder</h3>
-                                <span class="arc-badge badge-light">startup</span>
-                            </div>
-                            <p class="arc-company">ReWoo</p>
-                            <p class="arc-desc">Started my own AI startup, ReWoo. <a
-                                    href="https://rewoo.tech/" target="_blank" rel="noopener" style="text-decoration: underline;">rewoo.tech →</a></p>
-                        </div>
-                    </div>
-
-                    <div class="arc-item reveal">
-                        <div class="arc-year">2026</div>
-                        <div class="arc-divider">
-                            <div class="arc-dot"></div>
-                            <div class="arc-line"></div>
-                        </div>
-                        <div class="arc-content">
-                            <div class="arc-content-header">
-                                <h3 class="arc-role">First-Author Research Paper Published</h3>
-                                <span class="arc-badge badge-dark">publication</span>
-                            </div>
-                            <p class="arc-company">BUET CSE Fest 2026</p>
-                            <p class="arc-desc"><strong>Bangla Diarizz:</strong> Domain-Adapted Bengali Speaker
-                                Diarization via Knowledge Distillation. DER 0.19 (dev) / 0.286 (private LB) · 56% inference speedup · 3.4×
-                                real-time on CPU. <a
-                                    href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
-                                    target="_blank" rel="noopener" style="text-decoration: underline;">Preprint on ResearchGate →</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="arc-item reveal">
-                        <div class="arc-year">2025</div>
-                        <div class="arc-divider">
-                            <div class="arc-dot"></div>
-                            <div class="arc-line"></div>
-                        </div>
-                        <div class="arc-content">
-                            <div class="arc-content-header">
-                                <h3 class="arc-role">AI Engineer</h3>
-                                <span class="arc-badge badge-light">career</span>
-                            </div>
-                            <p class="arc-company">UK-based Company (Remote)</p>
-                            <p class="arc-desc">Working remotely as an AI Engineer, focusing on building and deploying robust AI products and scalable machine learning solutions for production environments.</p>
-                        </div>
-                    </div>
-
-                    <div class="arc-item reveal">
-                        <div class="arc-year">2025</div>
-                        <div class="arc-divider">
-                            <div class="arc-dot"></div>
-                            <div class="arc-line"></div>
-                        </div>
-                        <div class="arc-content">
-                            <div class="arc-content-header">
-                                <h3 class="arc-role">Kaggle Master</h3>
-                                <span class="arc-badge badge-dark">achievement</span>
-                            </div>
-                            <p class="arc-company">Kaggle</p>
-                            <p class="arc-desc">Top 1% (29/4,082) in <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener" style="text-decoration: underline;">Road Accident Risk</a>. 26 competitions
-                                total, including Top 2% in BPM Prediction.</p>
-                        </div>
-                    </div>
-
-                    <div class="arc-item reveal">
-                        <div class="arc-year">2024</div>
-                        <div class="arc-divider">
-                            <div class="arc-dot"></div>
-                            <div class="arc-line"></div>
-                        </div>
-                        <div class="arc-content">
-                            <div class="arc-content-header">
-                                <h3 class="arc-role">Deployed Production Recommendation System</h3>
-                                <span class="arc-badge badge-light">project</span>
-                            </div>
-                            <p class="arc-company">Freelance / Client Project</p>
-                            <p class="arc-desc">Built and delivered a hybrid recommendation system (collaborative +
-                                content-based). Successfully deployed and achieved a +10% sales increase in 3 months for
-                                the retail client.</p>
-                            <!-- TODO: insert client testimonial — e.g., "— VP of Operations, Retail Client" -->
-                        </div>
-                    </div>
-
-                    <div class="arc-item reveal">
-                        <div class="arc-year">2024</div>
-                        <div class="arc-divider">
-                            <div class="arc-dot"></div>
-                            <!-- No line for the last item -->
-                        </div>
-                        <div class="arc-content">
-                            <div class="arc-content-header">
-                                <h3 class="arc-role">Launched Toolly</h3>
-                                <span class="arc-badge badge-light">project</span>
-                            </div>
-                            <p class="arc-company">Personal Project</p>
-                            <p class="arc-desc">Built and launched an AI tool discovery platform (<a
-                                    href="https://www.toolly.tech/" target="_blank" rel="noopener"
-                                    style="text-decoration: underline;">toolly.tech</a>). Defined product vision, led
-                                full-stack development, implemented submission moderation and analytics. 400+ curated
-                                tools across 15 categories.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="section sj-section-research" aria-labelledby="research-heading">
-            <div class="container">
-                <p class="sj-section-eyebrow">Research</p>
-                <h2 id="research-heading" class="section-title sj-section-title-tight">Published work</h2>
-                <article class="sj-research-card reveal">
-                    <div class="sj-research-meta">
-                        <span>2026</span>
-                        <span>BUET CSE Fest 2026</span>
-                        <span>First author</span>
-                        <span>Speech · low-resource AI</span>
-                    </div>
-                    <h3 class="sj-research-title">Domain-adapted Bengali speaker diarization via knowledge distillation
-                    </h3>
-                    <p class="sj-research-abstract">A lightweight pipeline for Bengali long-form audio that reaches
-                        <strong>DER 0.19 (dev) / 0.286 (private LB)</strong>, with a distilled student model that runs at <strong>3.4× real-time on
-                            CPU</strong> and roughly <strong>56% faster inference</strong> than the baseline — aimed at
-                        deployments without heavy GPU infrastructure.
-                    </p>
-                    <div class="sj-research-tags">
-                        <span>Speaker diarization</span>
-                        <span>Knowledge distillation</span>
-                        <span>Bengali NLP</span>
-                        <span>PyTorch</span>
-                    </div>
-                    <a href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
-                        class="sj-research-link" target="_blank" rel="noopener">Preprint on ResearchGate <span
-                            aria-hidden="true">↗</span></a>
-                </article>
             </div>
         </section>
 
@@ -584,7 +530,9 @@
                 <div class="sj-now-grid">
                     <div class="sj-now-item reveal">
                         <h3 class="sj-now-label">Building</h3>
-                        <p class="sj-now-text">Focusing on my own AI startup, <a href="https://rewoo.tech/" target="_blank" rel="noopener" style="text-decoration: underline;">ReWoo</a>, while also working remotely with a UK-based company.</p>
+                        <p class="sj-now-text">Focusing on my own AI startup, <a href="https://rewoo.tech/"
+                                target="_blank" rel="noopener" style="text-decoration: underline;">ReWoo</a>, while also
+                            serving as CTO for a UK-based startup.</p>
                     </div>
                     <div class="sj-now-item reveal">
                         <h3 class="sj-now-label">Deploying</h3>
@@ -603,13 +551,15 @@
                     </div>
                 </div>
                 <p class="sj-kaggle-cta reveal">
-                    <strong>Kaggle Master</strong> — Top 1% (29/4,082) in Road Accident Risk. 26 competitions
+                    <strong>Kaggle Master</strong> — Top 1% (29/4,082) in Road Accident Risk. 30 competitions
                     total.
                     <a href="https://www.kaggle.com/adilshamim8" target="_blank" rel="noopener"
                         class="sj-kaggle-link">View Kaggle profile <span aria-hidden="true">↗</span></a>
                 </p>
             </div>
         </section>
+
+
 
         <!-- Contact Section -->
         <section id="contact" class="section contact-section">
@@ -672,9 +622,10 @@
                 <div>
                     <nav class="footer-nav" aria-label="Footer navigation">
                         <a href="#home">Home</a>
+                        <a href="#blog">Writing</a>
+                        <a href="#experience">Career</a>
                         <a href="#projects">Work</a>
                         <a href="#research">Research</a>
-                        <a href="#about">About</a>
                         <a href="#contact">Contact</a>
                         <a href="My_Story.html">My Story</a>
                     </nav>
@@ -689,7 +640,18 @@
                                 class="fab fa-medium"></i></a>
                         <a href="https://x.com/adil_shamim8" target="_blank" rel="noopener" aria-label="Twitter"><i
                                 class="fab fa-twitter"></i></a>
-<a href="https://bsky.app/profile/adilshamim8.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" style="fill:currentColor;vertical-align:middle;"><path d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 352.8 304.5c102.9 19.8 129.1 85.5 72.5 151.1c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.5-7.8-3.5-7.8s-1.8 3-3.5 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-65.6-30.4-131.3 72.5-151.1C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"/></svg></a>
+                        <a href="https://bsky.app/profile/adilshamim8.bsky.social" target="_blank" rel="noopener"
+                            aria-label="Bluesky"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                viewBox="0 0 512 512" style="fill:currentColor;vertical-align:middle;">
+                                <path
+                                    d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 352.8 304.5c102.9 19.8 129.1 85.5 72.5 151.1c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.5-7.8-3.5-7.8s-1.8 3-3.5 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-65.6-30.4-131.3 72.5-151.1C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z" />
+                            </svg></a>
+                        <a href="https://substack.com/@adilshamim" target="_blank" rel="noopener"
+                            aria-label="Substack"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                viewBox="0 0 24 24" style="fill:currentColor;vertical-align:middle;">
+                                <path
+                                    d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+                            </svg></a>
                     </div>
                 </div>
             </div>
