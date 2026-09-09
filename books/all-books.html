@@ -328,6 +328,7 @@
                     <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Deep Work — Cal Newport</span></li>
                     <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Power of Now: A Guide to Spiritual Enlightenment — Eckhart Tolle</span></li>
                     <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Thinking, Fast and Slow — Daniel Kahneman</span></li>
+                    <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Odyssey — Homer</span></li>
                     <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The 7 Habits of Highly Effective People — Stephen Covey</span></li>
                     <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">Grit: The Power of Passion and Perseverance — Angela Duckworth</span></li>
                     <li class="book-item-row"><i class="fas fa-circle book-item-bullet"></i><span class="book-text">The Four Agreements: A Practical Guide to Personal Freedom — Don Miguel Ruiz</span></li>
@@ -461,18 +462,81 @@
         document.addEventListener('DOMContentLoaded', function () {
             const searchInput = document.getElementById('archive-search');
             const items = document.querySelectorAll('.book-item-row');
+            const uls = document.querySelectorAll('.book-items-list');
+            const subcategoryTitles = document.querySelectorAll('.subcategory-title');
+            const categoryTitles = document.querySelectorAll('.category-title');
+            const separators = document.querySelectorAll('.section-separator');
 
             if (searchInput) {
                 searchInput.addEventListener('input', function (e) {
                     const query = e.target.value.toLowerCase().trim();
-                    items.forEach(item => {
-                        const text = item.textContent.toLowerCase();
-                        if (text.includes(query)) {
-                            item.style.display = 'flex';
-                        } else {
-                            item.style.display = 'none';
+
+                    if (!query) {
+                        items.forEach(item => item.style.display = 'flex');
+                        uls.forEach(ul => ul.style.display = '');
+                        subcategoryTitles.forEach(el => el.style.display = '');
+                        categoryTitles.forEach(el => el.style.display = '');
+                        separators.forEach(el => el.style.display = '');
+                        const noMatchEl = document.getElementById('no-books-found');
+                        if (noMatchEl) noMatchEl.style.display = 'none';
+                        return;
+                    }
+
+                    let totalMatches = 0;
+
+                    uls.forEach(ul => {
+                        const listItems = ul.querySelectorAll('.book-item-row');
+                        let ulMatches = 0;
+                        listItems.forEach(item => {
+                            const text = item.textContent.toLowerCase();
+                            if (text.includes(query)) {
+                                item.style.display = 'flex';
+                                ulMatches++;
+                                totalMatches++;
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+
+                        ul.style.display = ulMatches > 0 ? '' : 'none';
+
+                        let prev = ul.previousElementSibling;
+                        if (prev && prev.classList.contains('subcategory-title')) {
+                            prev.style.display = ulMatches > 0 ? '' : 'none';
                         }
                     });
+
+                    categoryTitles.forEach(cat => {
+                        let next = cat.nextElementSibling;
+                        let catHasMatches = false;
+                        while (next && !next.classList.contains('category-title')) {
+                            if (next.classList.contains('book-items-list') && next.style.display !== 'none') {
+                                catHasMatches = true;
+                                break;
+                            }
+                            next = next.nextElementSibling;
+                        }
+                        cat.style.display = catHasMatches ? '' : 'none';
+                    });
+
+                    separators.forEach(sep => {
+                        sep.style.display = 'none';
+                    });
+
+                    let noMatchEl = document.getElementById('no-books-found');
+                    if (totalMatches === 0) {
+                        if (!noMatchEl) {
+                            noMatchEl = document.createElement('div');
+                            noMatchEl.id = 'no-books-found';
+                            noMatchEl.style.cssText = 'text-align: center; padding: 40px 20px; color: var(--text-secondary); font-size: 1.05rem;';
+                            const archivePart = document.querySelector('.archive-part');
+                            if (archivePart) archivePart.appendChild(noMatchEl);
+                        }
+                        noMatchEl.textContent = 'No books found matching "' + e.target.value.trim() + '".';
+                        noMatchEl.style.display = 'block';
+                    } else if (noMatchEl) {
+                        noMatchEl.style.display = 'none';
+                    }
                 });
             }
         });

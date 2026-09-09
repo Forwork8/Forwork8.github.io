@@ -191,20 +191,20 @@ function initProjects() {
             badge: 'Published Research'
         },
         {
-            title: 'Production-Grade RAG',
-            problem: 'Enterprise RAG systems fail in production: dropped context, no source attribution, and vendor lock-in to a single LLM provider.',
-            constraint: 'Must handle PDF ingestion at scale, be idempotent on re-ingestion, and work across OpenAI, Gemini, and local models.',
-            approach: 'PDF → recursive chunking → multi-provider embeddings → Qdrant with deterministic IDs → top-K retrieval → source-aware LLM generation. Durable workflows via Inngest ensure local-first resilience.',
-            numbers: 'Multi-provider (OpenAI · Gemini · Ollama) · Idempotent re-ingestion · Grounded, auditable answers · Query routing + context window management',
+            title: 'Production-Grade Agentic RAG Platform',
+            problem: 'Enterprise RAG systems degrade in production due to static single-shot retrieval, hallucinated citations, missing temporal context (stale documents), lack of access controls (RBAC leaks), and zero observability into intermediate tool reasoning.',
+            constraint: 'Must execute dynamic multi-step query planning, enforce pre-retrieval SQL-layer RBAC filtering, validate citations against retrieved evidence chunks, maintain auditable conversation memory with expiry, and trace full telemetry via OpenTelemetry/Langfuse.',
+            approach: 'Full-stack agentic architecture: Next.js + FastAPI → custom state-machine Planner (query decomposition & tool calls) → Hybrid retrieval (dense pgvector + lexical Postgres FTS fused via Reciprocal Rank Fusion) → Cross-encoder reranking (BGE-reranker-v2-m3) → Evidence sufficiency verification → Grounded generation with citation validation. Enforces SQL-level tenant isolation, short/long-term memory with conflict resolution, and CI/CD evaluation quality gates.',
+            numbers: 'Hybrid RAG (Dense + BM25 via RRF) · BGE-v2 Cross-Encoder Reranking · Pre-retrieval SQL RBAC · OpenTelemetry + Langfuse Tracing · Golden dataset CI evaluation gates',
             impact: [
-                { number: '3', label: 'LLM Providers' },
-                { number: '0', label: 'Vendor Lock-in' },
-                { number: '100%', label: 'Idempotent' }
+                { number: 'RRF', label: 'Hybrid Fusion' },
+                { number: '100%', label: 'SQL-Layer RBAC' },
+                { number: 'Full', label: 'OTel + Langfuse Tracing' }
             ],
-            tags: ['LangChain', 'Qdrant', 'FastAPI', 'Inngest', 'OpenAI', 'GenAI'],
+            tags: ['Agentic RAG', 'FastAPI', 'pgvector', 'PostgreSQL FTS', 'Cross-Encoder', 'OpenTelemetry', 'Langfuse', 'Docker'],
             paper: null,
             demo: null,
-            code: 'https://github.com/AdilShamim8/Production-grade-RAG',
+            code: 'https://github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform',
             badge: 'Production GenAI'
         },
         {

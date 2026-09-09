@@ -109,6 +109,13 @@ const CHATBOT_CONFIG = {
         
         projects: [
             {
+                name: "Bengali Hallucination Detection",
+                paper: "https://www.researchgate.net/publication/414015409_Bengali_Hallucination_Detection_with_Retrieval_and_Programs_A_System_Study",
+                technologies: ["Retrieval-Augmented Judging", "Program-Assisted Reasoning", "FAISS", "BM25", "Qwen 2.5", "Python Execution"],
+                badge: "Published Research",
+                description: "1st Author paper (IEEE format / system study) on detecting Bengali LLM hallucinations without reference passages. Features a 6-route hybrid retrieval pipeline, a 27B textual judge, and an autonomous 14B code-executing MathAgent. Achieved 0.956 private macro-F1 on the Kaggle Olikbochon benchmark."
+            },
+            {
                 name: "Bangla Diarizz",
                 github: "https://github.com/AdilShamim8/Bangla-Diarizz",
                 paper: "https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio",
@@ -117,11 +124,11 @@ const CHATBOT_CONFIG = {
                 description: "1st Author paper at BUET CSE Fest 2026. Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. Result: DER 0.19 (dev) / 0.286 (private LB), 3.4× real-time on CPU, 56% wall-clock speed improvement. Ranked #19/100+ teams."
             },
             {
-                name: "Production-Grade RAG",
-                github: "https://github.com/AdilShamim8/Production-grade-RAG",
-                technologies: ["LangChain", "Qdrant", "FastAPI", "Inngest", "OpenAI", "Gemini", "Ollama"],
+                name: "Production-Grade Agentic RAG Platform",
+                github: "https://github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform",
+                technologies: ["Agentic RAG", "FastAPI", "pgvector", "PostgreSQL FTS", "Cross-Encoder", "OpenTelemetry", "Langfuse", "Docker"],
                 badge: "Production GenAI",
-                description: "Enterprise RAG pipeline: PDF upload → recursive chunking → multi-provider embeddings → Qdrant vector store with deterministic IDs for idempotent re-ingestion → top-K retrieval → source-aware LLM generation with grounded, auditable answers. Includes query routing and context window management."
+                description: "End-to-end Agentic RAG platform: custom state-machine Planner (query decomposition & tool calls), hybrid retrieval (dense pgvector + lexical FTS via RRF), BGE-reranker-v2-m3 cross-encoder, pre-retrieval SQL-layer RBAC, citation verification, and full OpenTelemetry/Langfuse observability."
             },
             {
                 name: "QuantScope",
@@ -298,16 +305,17 @@ AI/ML Engineer & Data Scientist with 2+ years of experience building and shippin
 
 **PROJECTS:**
 1. **Bangla Diarizz** (1st Author Paper at BUET CSE Fest 2026) — Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. DER 0.19 (dev) / 0.286 (private LB). 56% wall-clock speed improvement (1h22m → ~36m). Ranked #19/100+ teams. Deployed Gradio demo on HuggingFace Spaces. GitHub: https://github.com/AdilShamim8/Bangla-Diarizz
-2. **Production-Grade RAG Pipeline** — Enterprise RAG: PDF upload → recursive chunking → multi-provider embeddings (OpenAI, Gemini, Ollama) → Qdrant vector store with deterministic IDs for idempotent re-ingestion → top-K retrieval → source-aware LLM generation. Includes query routing, context window management, and source attribution. GitHub: https://github.com/AdilShamim8/Production-grade-RAG
+2. **Production-Grade Agentic RAG Platform** — Enterprise Agentic RAG: Next.js + FastAPI → custom state-machine Planner (query decomposition & tool calling) → Hybrid retrieval (dense pgvector + lexical Postgres FTS fused via Reciprocal Rank Fusion) → Cross-encoder reranking (BGE-reranker-v2-m3) → pre-retrieval SQL-layer RBAC filtering → evidence validation & citation verification. Full observability with OpenTelemetry and Langfuse, and CI/CD evaluation quality gates. GitHub: https://github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform
 3. **QuantScope** — Global Quantitative Stock Analysis Platform. 35+ exchanges. Strict architectural separation (core/ has zero imports from llm/ or api/). 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based static fallback. 33 tests, zero vendor lock-in. GitHub: https://github.com/AdilShamim8/QuantScope
 4. **Production ML Pipeline** — End-to-end House Price Predictor: ingest → preprocess → train → evaluate → register → serve. ZenML orchestration + MLflow tracking. Cross-validation and hyperparameter tuning. Dockerized FastAPI inference service. GitHub: https://github.com/AdilShamim8/Prices_Predictor_System
 5. **Training Data Bot** — Automated LLM fine-tuning dataset pipeline. Ingests PDF/text/URLs → multi-signal quality scoring (length, dedup, coherence) → structured output for fine-tuning. Zero manual curation. GitHub: https://github.com/AdilShamim8/Training-Data-Bot
 
 **EXPERIENCE:**
 1. Founder & AI/ML Engineer — Toolly (Jun 2025 — Present): Designed and shipped toolly.tech — live AI tools directory with 400+ tools, 15 categories, community submission pipeline, Learn AI hub. 206+ commits. Built Toolly Studio (Streamlit + Bria AI image gen). URL: https://www.toolly.tech
-2. 1st Author — Conference Paper (BUET CSE Fest 2026): "Bangla Diarizz" — Bengali speaker diarization with 56% inference speedup. ResearchGate: https://www.researchgate.net/publication/401194830
-3. ML Engineer — Independent Contractor (Jan–May 2025): Built hybrid recommendation engine (ALS + TF-IDF). Deployed as Flask API. Verified +10% client sales lift in 90 days.
-4. Kaggle Master: Top 1% (29/4,082) in Road Accident Risk. Top 2% in BPM prediction (38/2,581). 30 competitions completed. Published notebooks and hosted competitions.
+2. 1st Author — System Study Paper (2026): "Bengali Hallucination Detection with Retrieval and Programs: A System Study" — Multi-stage LLM-as-judge pipeline with 6-route hybrid retrieval & code-executing MathAgent, reaching 0.956 private macro-F1 on Kaggle Olikbochon. ResearchGate: https://www.researchgate.net/publication/414015409_Bengali_Hallucination_Detection_with_Retrieval_and_Programs_A_System_Study
+3. 1st Author — Conference Paper (BUET CSE Fest 2026): "Bangla Diarizz" — Bengali speaker diarization with 56% inference speedup. ResearchGate: https://www.researchgate.net/publication/401194830
+4. ML Engineer — Independent Contractor (Jan–May 2025): Built hybrid recommendation engine (ALS + TF-IDF). Deployed as Flask API. Verified +10% client sales lift in 90 days.
+5. Kaggle Master: Top 1% (29/4,082) in Road Accident Risk. Top 2% in BPM prediction (38/2,581). 30 competitions completed. Published notebooks and hosted competitions.
 
 **CERTIFICATIONS:**
 - Machine Learning — Stanford University (Coursera)
@@ -603,13 +611,15 @@ Try the quick action buttons below or ask me anything! `;
             return `Adil's resume is available here: ${info.resumePath}`;
         }
 
-        if (/(skill|tech|stack|mlops|python|tensorflow|nlp|deployment)/i.test(text)) {
+        if (/(skill|tech|stack|mlops|python|agent|rag|nlp|speech|deployment)/i.test(text)) {
             return [
-                "Adil's core technical strengths:",
-                "• Programming & Data: Python, SQL, Bash, Pandas, NumPy",
-                "• ML & Modeling: TensorFlow, scikit-learn, XGBoost, LightGBM, CatBoost",
-                "• MLOps & Deployment: MLflow, ZenML, Docker, FastAPI",
-                "• NLP & Embeddings: spaCy, SBERT, FAISS, TF-IDF"
+                "Adil's senior AI engineering strengths:",
+                "• Agentic AI & Systems: LangGraph, Agentic Workflows, MCP (Model Context Protocol), Multi-Agent Systems, Tool Calling",
+                "• Advanced RAG & Retrieval: Hybrid Search (pgvector + BM25 RRF), Cross-Encoder Reranking, Context Window Optimization, Citation Verification",
+                "• Speech AI & Bengali NLP: Bengali NLP, Speaker Diarization, Whisper, pyannote.audio, WeSpeaker, Knowledge Distillation (1st Author Published Research)",
+                "• Production ML & DL: PyTorch, HuggingFace Transformers, nanoGPT from scratch, PEFT (LoRA/QLoRA), Diffusion Models",
+                "• MLOps & Observability: OpenTelemetry, Langfuse, MLflow, ZenML, Docker, CI/CD, AWS Cloud",
+                "• Infrastructure & Data: Python, SQL, PostgreSQL, FastAPI (Async Serving), AI Systems Design"
             ].join('\n');
         }
 
@@ -617,7 +627,7 @@ Try the quick action buttons below or ask me anything! `;
             return [
                 "Adil's 5 production projects:",
                 "1. Bangla Diarizz — Published research: Bengali speaker diarization, DER 0.19, 56% faster inference. (github.com/AdilShamim8/Bangla-Diarizz)",
-                "2. Production-Grade RAG — Multi-provider RAG pipeline (OpenAI/Gemini/Ollama) with idempotent ingestion and Qdrant. (github.com/AdilShamim8/Production-grade-RAG)",
+                "2. Production-Grade Agentic RAG Platform — Enterprise Agentic RAG with hybrid retrieval (pgvector + BM25 RRF), cross-encoder reranking, SQL-layer RBAC, and OpenTelemetry/Langfuse tracing. (github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform)",
                 "3. QuantScope — Quantitative stock analysis with 6-provider LLM fallback chain and zero vendor lock-in. (github.com/AdilShamim8/QuantScope)",
                 "4. Production ML Pipeline — End-to-end ZenML + MLflow pipeline with Dockerized FastAPI serving. (github.com/AdilShamim8/Prices_Predictor_System)",
                 "5. Training Data Bot — Automated PDF/text/URL → fine-tuning dataset pipeline with quality scoring. (github.com/AdilShamim8/Training-Data-Bot)"

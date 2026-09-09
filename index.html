@@ -32,7 +32,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css?v=2.2">
+    <link rel="stylesheet" href="assets/css/styles.css?v=2.5">
     <link rel="stylesheet" href="assets/css/chatbot.css">
     <link rel="icon" href="assets/images/Adil.jpeg" type="image/jpeg">
     <link rel="shortcut icon" href="assets/images/Adil.jpeg" type="image/jpeg">
@@ -336,8 +336,8 @@
                         <li><strong>Bangla Diarizz</strong> — Production-grade Bengali speaker diarization. DER 0.19
                             (dev) / 0.286 (private LB). 56% inference speedup. <a
                                 href="https://github.com/AdilShamim8/Bangla-Diarizz">GitHub</a></li>
-                        <li><strong>Production-Grade RAG</strong> — Multi-provider RAG pipeline with Qdrant, idempotent
-                            ingestion. <a href="https://github.com/AdilShamim8/Production-grade-RAG">GitHub</a></li>
+                        <li><strong>Production-Grade Agentic RAG Platform</strong> — Hybrid retrieval (pgvector + BM25 RRF), cross-encoder reranking, SQL-layer RBAC, OpenTelemetry &amp; Langfuse. <a
+                                href="https://github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform">GitHub</a></li>
                         <li><strong>QuantScope</strong> — Quantitative stock analysis, 6-provider LLM fallback, 33
                             tests. <a href="https://github.com/AdilShamim8/QuantScope">GitHub</a></li>
                         <li><strong>Production ML Pipeline</strong> — ZenML + MLflow end-to-end pipeline, Dockerized
@@ -359,31 +359,87 @@
             <div class="container">
                 <p class="sj-section-eyebrow">Research</p>
                 <h2 id="research-heading" class="section-title sj-section-title-tight">Published work</h2>
-                <article class="sj-research-card reveal">
-                    <div class="sj-research-meta">
-                        <span>2026</span>
-                        <span>BUET CSE Fest 2026</span>
-                        <span>First author</span>
-                        <span>Speech · low-resource AI</span>
-                    </div>
-                    <h3 class="sj-research-title">Domain-adapted Bengali speaker diarization via knowledge distillation
-                    </h3>
-                    <p class="sj-research-abstract">A lightweight pipeline for Bengali long-form audio that reaches
-                        <strong>DER 0.19 (dev) / 0.286 (private LB)</strong>, with a distilled student model that runs
-                        at <strong>3.4× real-time on
-                            CPU</strong> and roughly <strong>56% faster inference</strong> than the baseline — aimed at
-                        deployments without heavy GPU infrastructure.
-                    </p>
-                    <div class="sj-research-tags">
-                        <span>Speaker diarization</span>
-                        <span>Knowledge distillation</span>
-                        <span>Bengali NLP</span>
-                        <span>PyTorch</span>
-                    </div>
-                    <a href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
-                        class="sj-research-link" target="_blank" rel="noopener">Preprint on ResearchGate <span
-                            aria-hidden="true">↗</span></a>
-                </article>
+                <div class="sj-research-cards">
+                    <article class="sj-research-card reveal">
+                        <div class="sj-research-header">
+                            <div class="sj-research-badges">
+                                <span class="sj-badge sj-badge-year">2026</span>
+                                <span class="sj-badge sj-badge-venue">Kaggle Olikbochon · IEEE</span>
+                            </div>
+                            <span class="sj-badge sj-badge-role">First Author</span>
+                        </div>
+                        <h3 class="sj-research-title">Bengali Hallucination Detection with Retrieval and Programs: A System Study</h3>
+                        <p class="sj-research-abstract">Inference-only RAG judging system detecting Bengali LLM hallucinations without ground truth. Couples 6-route hybrid retrieval (FAISS + BM25) with a 27B factual judge and an autonomous 14B code-executing MathAgent.</p>
+                        <div class="sj-research-stats">
+                            <div class="sj-stat-item">
+                                <span class="sj-stat-val">0.956</span>
+                                <span class="sj-stat-lbl">Macro-F1</span>
+                            </div>
+                            <div class="sj-stat-item">
+                                <span class="sj-stat-val">6-Route</span>
+                                <span class="sj-stat-lbl">Hybrid RAG</span>
+                            </div>
+                            <div class="sj-stat-item">
+                                <span class="sj-stat-val">27B + 14B</span>
+                                <span class="sj-stat-lbl">Dual Agents</span>
+                            </div>
+                        </div>
+                        <div class="sj-research-tags">
+                            <span>Hallucination Detection</span>
+                            <span>Agentic RAG</span>
+                            <span>Hybrid Retrieval</span>
+                            <span>Bengali NLP</span>
+                        </div>
+                        <div class="sj-research-footer">
+                            <span class="sj-research-doc-type">IEEE Format</span>
+                            <a href="https://www.researchgate.net/publication/414015409_Bengali_Hallucination_Detection_with_Retrieval_and_Programs_A_System_Study"
+                                class="sj-research-link" target="_blank" rel="noopener">
+                                <span>View on ResearchGate</span>
+                                <span class="sj-link-arrow" aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="sj-research-card reveal">
+                        <div class="sj-research-header">
+                            <div class="sj-research-badges">
+                                <span class="sj-badge sj-badge-year">2026</span>
+                                <span class="sj-badge sj-badge-venue">BUET CSE Fest 2026</span>
+                            </div>
+                            <span class="sj-badge sj-badge-role">First Author</span>
+                        </div>
+                        <h3 class="sj-research-title">Domain-adapted Bengali speaker diarization via knowledge distillation</h3>
+                        <p class="sj-research-abstract">Lightweight speech diarization pipeline for Bengali long-form audio. Distills heavy neural diarization into a high-throughput student model running at 3.4× real-time on CPU for GPU-free production deployments.</p>
+                        <div class="sj-research-stats">
+                            <div class="sj-stat-item">
+                                <span class="sj-stat-val">0.19 / 0.286</span>
+                                <span class="sj-stat-lbl">DER (Dev / LB)</span>
+                            </div>
+                            <div class="sj-stat-item">
+                                <span class="sj-stat-val">3.4×</span>
+                                <span class="sj-stat-lbl">CPU Speed</span>
+                            </div>
+                            <div class="sj-stat-item">
+                                <span class="sj-stat-val">56%</span>
+                                <span class="sj-stat-lbl">Faster Inf.</span>
+                            </div>
+                        </div>
+                        <div class="sj-research-tags">
+                            <span>Speaker Diarization</span>
+                            <span>Knowledge Distillation</span>
+                            <span>Bengali NLP</span>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="sj-research-footer">
+                            <span class="sj-research-doc-type">Preprint Paper</span>
+                            <a href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio"
+                                class="sj-research-link" target="_blank" rel="noopener">
+                                <span>View on ResearchGate</span>
+                                <span class="sj-link-arrow" aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -395,67 +451,69 @@
                 </div>
                 <div class="skills-grid">
                     <div class="skill-group">
-                        <h3 class="skill-group-title">Production ML Systems</h3>
+                        <h3 class="skill-group-title">Agentic AI &amp; Multi-Agent Systems</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">HuggingFace Transformers</span>
-                            <span class="skill-tag">scikit-learn</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kubernetes</span>
-                        </div>
-                    </div>
-                    <div class="skill-group">
-                        <h3 class="skill-group-title">MLOps &amp; Cloud</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">MLflow</span>
-                            <span class="skill-tag">ZenML</span>
-                            <span class="skill-tag">CI/CD</span>
-                            <span class="skill-tag">Monitoring</span>
-                            <span class="skill-tag">Drift Detection</span>
-                        </div>
-                    </div>
-                    <div class="skill-group">
-                        <h3 class="skill-group-title">GenAI &amp; LLM Systems</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">LangChain</span>
                             <span class="skill-tag">LangGraph</span>
-                            <span class="skill-tag">Agentic AI</span>
-                            <span class="skill-tag">RAG Pipelines</span>
-                            <span class="skill-tag">Prompt Engineering</span>
-                            <span class="skill-tag">Evaluation Frameworks</span>
+                            <span class="skill-tag">Agentic Workflows</span>
+                            <span class="skill-tag">MCP (Model Context Protocol)</span>
+                            <span class="skill-tag">Multi-Agent Systems</span>
+                            <span class="skill-tag">Tool Calling &amp; ReACT</span>
+                            <span class="skill-tag">Reasoning Models</span>
                         </div>
                     </div>
                     <div class="skill-group">
-                        <h3 class="skill-group-title">Languages &amp; Infrastructure</h3>
+                        <h3 class="skill-group-title">Advanced RAG &amp; Information Retrieval</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">Hybrid Search (Dense + BM25)</span>
+                            <span class="skill-tag">pgvector &amp; Qdrant</span>
+                            <span class="skill-tag">Cross-Encoder Reranking</span>
+                            <span class="skill-tag">Reciprocal Rank Fusion (RRF)</span>
+                            <span class="skill-tag">Context Window Optimization</span>
+                            <span class="skill-tag">Citation &amp; Truth Verification</span>
                         </div>
                     </div>
                     <div class="skill-group">
-                        <h3 class="skill-group-title">Data &amp; Search</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Vector Databases</span>
-                            <span class="skill-tag">Qdrant</span>
-                            <span class="skill-tag">Embeddings</span>
-                            <span class="skill-tag">Semantic Search</span>
-                        </div>
-                    </div>
-                    <div class="skill-group">
-                        <h3 class="skill-group-title">Domain Specialization</h3>
+                        <h3 class="skill-group-title">Speech AI &amp; Bengali NLP</h3>
                         <div class="skill-tags">
                             <span class="skill-tag">Bengali NLP</span>
                             <span class="skill-tag">Speaker Diarization</span>
+                            <span class="skill-tag">Whisper &amp; pyannote.audio</span>
+                            <span class="skill-tag">wav2vec2 &amp; WeSpeaker</span>
+                            <span class="skill-tag">Knowledge Distillation</span>
                             <span class="skill-tag">Low-Resource Speech AI</span>
-                            <span class="skill-tag">Audio ML</span>
-                            <span class="skill-tag">Computer Vision</span>
-                            <span class="skill-tag">OpenCV</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Production ML &amp; Deep Learning</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">HuggingFace Transformers</span>
+                            <span class="skill-tag">nanoGPT (Transformers from Scratch)</span>
+                            <span class="skill-tag">PEFT &amp; LoRA / QLoRA</span>
+                            <span class="skill-tag">Diffusion Models (DiT)</span>
+                            <span class="skill-tag">scikit-learn</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">MLOps &amp; Observability</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">OpenTelemetry &amp; Langfuse</span>
+                            <span class="skill-tag">MLflow &amp; ZenML</span>
+                            <span class="skill-tag">Docker &amp; Containerization</span>
+                            <span class="skill-tag">CI/CD &amp; GitHub Actions</span>
+                            <span class="skill-tag">Model Evaluation &amp; Benchmarking</span>
+                            <span class="skill-tag">AWS Cloud</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Languages &amp; AI Infrastructure</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL &amp; PostgreSQL</span>
+                            <span class="skill-tag">FastAPI (Async Serving)</span>
+                            <span class="skill-tag">AI Systems Design</span>
+                            <span class="skill-tag">REST &amp; Streaming APIs</span>
+                            <span class="skill-tag">Linux &amp; Git</span>
                         </div>
                     </div>
                 </div>
@@ -674,8 +732,8 @@
         </div>
     </footer>
 
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/chatbot.js" defer></script>
+    <script src="assets/js/script.js?v=2.0" defer></script>
+    <script src="assets/js/chatbot.js?v=2.1" defer></script>
 </body>
 
 </html>
