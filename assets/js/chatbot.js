@@ -28,6 +28,8 @@ const CHATBOT_CONFIG = {
         title: "AI/ML Engineer & Data Scientist",
         location: "Dhaka, Bangladesh",
         email: "adilshamim696@gmail.com",
+        website: "https://www.adilshamim.me",
+        resumePath: "assets/docs/AdilShamim_SeniorAIEngineer.pdf",
         education: "B.Sc. in Computer Science & Engineering — BNIST (February 2023 — Present)",
         experience: "AI/ML Engineer & Data Scientist with 2+ years of hands-on experience building and shipping production LLM systems, RAG pipelines, and agentic workflows.",
         kaggleStatus: "Kaggle Master — Top 1% (29/4,082) in Road Accident Risk. Completed 30 competitions.",
@@ -124,11 +126,18 @@ const CHATBOT_CONFIG = {
                 description: "1st Author paper at BUET CSE Fest 2026. Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. Result: DER 0.19 (dev) / 0.286 (private LB), 3.4× real-time on CPU, 56% wall-clock speed improvement. Ranked #19/100+ teams."
             },
             {
-                name: "Production-Grade Agentic RAG Platform",
-                github: "https://github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform",
+                name: "Agentic RAG Platform",
+                github: "https://github.com/AdilShamim8/Agentic-RAG-Platform",
                 technologies: ["Agentic RAG", "FastAPI", "pgvector", "PostgreSQL FTS", "Cross-Encoder", "OpenTelemetry", "Langfuse", "Docker"],
                 badge: "Production GenAI",
                 description: "End-to-end Agentic RAG platform: custom state-machine Planner (query decomposition & tool calls), hybrid retrieval (dense pgvector + lexical FTS via RRF), BGE-reranker-v2-m3 cross-encoder, pre-retrieval SQL-layer RBAC, citation verification, and full OpenTelemetry/Langfuse observability."
+            },
+            {
+                name: "Agentic AI Eval Harness",
+                github: "https://github.com/AdilShamim8/Agentic-AI-Eval-Harness",
+                technologies: ["Agentic AI", "AI Evaluation", "LangGraph", "pytest", "CI/CD Gates", "LLM-as-a-Judge", "Python"],
+                badge: "Agentic AI",
+                description: "CI regression gate platform for AI agents. Evaluates LangGraph, OpenAI Agents SDK, CrewAI, and custom agents against 280 hash-pinned golden cases. Features deterministic + κ-calibrated LLM judges, root-cause failure localization (agent vs evaluator vs infra), McNemar significance testing, and a zero-dependency (PyYAML only) pytest bridge."
             },
             {
                 name: "QuantScope",
@@ -305,10 +314,11 @@ AI/ML Engineer & Data Scientist with 2+ years of experience building and shippin
 
 **PROJECTS:**
 1. **Bangla Diarizz** (1st Author Paper at BUET CSE Fest 2026) — Production-grade Bengali speaker diarization. Fine-tuned segmentation model, replaced embeddings with WeSpeaker ResNet34-LM for domain adaptation. DER 0.19 (dev) / 0.286 (private LB). 56% wall-clock speed improvement (1h22m → ~36m). Ranked #19/100+ teams. Deployed Gradio demo on HuggingFace Spaces. GitHub: https://github.com/AdilShamim8/Bangla-Diarizz
-2. **Production-Grade Agentic RAG Platform** — Enterprise Agentic RAG: Next.js + FastAPI → custom state-machine Planner (query decomposition & tool calling) → Hybrid retrieval (dense pgvector + lexical Postgres FTS fused via Reciprocal Rank Fusion) → Cross-encoder reranking (BGE-reranker-v2-m3) → pre-retrieval SQL-layer RBAC filtering → evidence validation & citation verification. Full observability with OpenTelemetry and Langfuse, and CI/CD evaluation quality gates. GitHub: https://github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform
-3. **QuantScope** — Global Quantitative Stock Analysis Platform. 35+ exchanges. Strict architectural separation (core/ has zero imports from llm/ or api/). 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based static fallback. 33 tests, zero vendor lock-in. GitHub: https://github.com/AdilShamim8/QuantScope
-4. **Production ML Pipeline** — End-to-end House Price Predictor: ingest → preprocess → train → evaluate → register → serve. ZenML orchestration + MLflow tracking. Cross-validation and hyperparameter tuning. Dockerized FastAPI inference service. GitHub: https://github.com/AdilShamim8/Prices_Predictor_System
-5. **Training Data Bot** — Automated LLM fine-tuning dataset pipeline. Ingests PDF/text/URLs → multi-signal quality scoring (length, dedup, coherence) → structured output for fine-tuning. Zero manual curation. GitHub: https://github.com/AdilShamim8/Training-Data-Bot
+2. **Agentic RAG Platform** — Enterprise Agentic RAG: Next.js + FastAPI → custom state-machine Planner (query decomposition & tool calling) → Hybrid retrieval (dense pgvector + lexical Postgres FTS fused via Reciprocal Rank Fusion) → Cross-encoder reranking (BGE-reranker-v2-m3) → pre-retrieval SQL-layer RBAC filtering → evidence validation & citation verification. Full observability with OpenTelemetry and Langfuse, and CI/CD evaluation quality gates. GitHub: https://github.com/AdilShamim8/Agentic-RAG-Platform
+3. **Agentic AI Eval Harness** — CI regression gate for AI agents. Runs agents against 280 hash-pinned golden cases, scores outcomes and observable behaviors, and fails merges when quality drops past thresholds (with failure localization: test vs evaluator vs infra). Built with LangGraph, OpenAI Agents SDK, CrewAI adapters, κ-calibrated LLM judges, McNemar testing, and pytest bridge. Single PyYAML dependency. GitHub: https://github.com/AdilShamim8/Agentic-AI-Eval-Harness
+4. **QuantScope** — Global Quantitative Stock Analysis Platform. 35+ exchanges. Strict architectural separation (core/ has zero imports from llm/ or api/). 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based static fallback. 33 tests, zero vendor lock-in. GitHub: https://github.com/AdilShamim8/QuantScope
+5. **Production ML Pipeline** — End-to-end House Price Predictor: ingest → preprocess → train → evaluate → register → serve. ZenML orchestration + MLflow tracking. Cross-validation and hyperparameter tuning. Dockerized FastAPI inference service. GitHub: https://github.com/AdilShamim8/Prices_Predictor_System
+6. **Training Data Bot** — Automated LLM fine-tuning dataset pipeline. Ingests PDF/text/URLs → multi-signal quality scoring (length, dedup, coherence) → structured output for fine-tuning. Zero manual curation. GitHub: https://github.com/AdilShamim8/Training-Data-Bot
 
 **EXPERIENCE:**
 1. Founder & AI/ML Engineer — Toolly (Jun 2025 — Present): Designed and shipped toolly.tech — live AI tools directory with 400+ tools, 15 categories, community submission pipeline, Learn AI hub. 206+ commits. Built Toolly Studio (Streamlit + Bria AI image gen). URL: https://www.toolly.tech
@@ -593,18 +603,21 @@ Try the quick action buttons below or ask me anything! `;
         const info = CHATBOT_CONFIG.personalInfo;
 
         if (/(contact|reach|email|phone|linkedin|github|kaggle|twitter|x\.com|medium)/i.test(text)) {
-            return [
+            const contactItems = [
                 "Here is how you can contact Adil:",
                 `• Email: ${info.email}`,
-                `• Phone: ${info.phone}`,
                 `• LinkedIn: ${info.socialMedia.linkedin}`,
                 `• GitHub: ${info.socialMedia.github}`,
                 `• Kaggle: ${info.socialMedia.kaggle}`,
                 `• Twitter/X: ${info.socialMedia.twitter}`,
                 `• Medium: ${info.socialMedia.medium}`,
-                `• Website: ${info.website}`,
+                `• Website: ${info.website || 'https://www.adilshamim.me'}`,
                 `• Location: ${info.location}`
-            ].join('\n');
+            ];
+            if (info.phone) {
+                contactItems.splice(2, 0, `• Phone: ${info.phone}`);
+            }
+            return contactItems.join('\n');
         }
 
         if (/(resume|cv)/i.test(text)) {
@@ -625,12 +638,13 @@ Try the quick action buttons below or ask me anything! `;
 
         if (/(project|portfolio|built|work)/i.test(text)) {
             return [
-                "Adil's 5 production projects:",
+                "Adil's production systems & featured projects:",
                 "1. Bangla Diarizz — Published research: Bengali speaker diarization, DER 0.19, 56% faster inference. (github.com/AdilShamim8/Bangla-Diarizz)",
-                "2. Production-Grade Agentic RAG Platform — Enterprise Agentic RAG with hybrid retrieval (pgvector + BM25 RRF), cross-encoder reranking, SQL-layer RBAC, and OpenTelemetry/Langfuse tracing. (github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform)",
-                "3. QuantScope — Quantitative stock analysis with 6-provider LLM fallback chain and zero vendor lock-in. (github.com/AdilShamim8/QuantScope)",
-                "4. Production ML Pipeline — End-to-end ZenML + MLflow pipeline with Dockerized FastAPI serving. (github.com/AdilShamim8/Prices_Predictor_System)",
-                "5. Training Data Bot — Automated PDF/text/URL → fine-tuning dataset pipeline with quality scoring. (github.com/AdilShamim8/Training-Data-Bot)"
+                "2. Agentic RAG Platform — Enterprise Agentic RAG with hybrid retrieval (pgvector + BM25 RRF), cross-encoder reranking, SQL-layer RBAC, and OpenTelemetry/Langfuse tracing. (github.com/AdilShamim8/Agentic-RAG-Platform)",
+                "3. Agentic AI Eval Harness — CI regression gate for AI agents running 280 hash-pinned golden cases with fail-closed merge gates. (github.com/AdilShamim8/Agentic-AI-Eval-Harness)",
+                "4. QuantScope — Quantitative stock analysis with 6-provider LLM fallback chain and zero vendor lock-in. (github.com/AdilShamim8/QuantScope)",
+                "5. Production ML Pipeline — End-to-end ZenML + MLflow pipeline with Dockerized FastAPI serving. (github.com/AdilShamim8/Prices_Predictor_System)",
+                "6. Training Data Bot — Automated PDF/text/URL → fine-tuning dataset pipeline with quality scoring. (github.com/AdilShamim8/Training-Data-Bot)"
             ].join('\n');
         }
 

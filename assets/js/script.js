@@ -174,7 +174,7 @@ function initProjects() {
     var projects = [
         {
             title: 'Bangla Diarizz',
-            problem: 'Production-grade Bengali speaker diarization — no existing solution for real Bengali call center audio. Off-the-shelf pyannote achieved a DER of 35% on in-domain data, making it unusable for production deployments.',
+            problem: 'Bengali speaker diarization — no existing solution for real Bengali call center audio. Off-the-shelf pyannote achieved a DER of 35% on in-domain data, making it unusable for production deployments.',
             constraint: 'Only 4 hours of labeled Bengali data. GPU-free inference required for cost-constrained deployments.',
             approach: 'Targeted domain adaptation on the speaker embedding layer only, leaving the upstream VAD and segmentation stages intact to avoid catastrophic forgetting. Applied knowledge distillation to produce a lighter student model — transferring behavioral knowledge from the teacher without labeled data.',
             numbers: 'DER 0.19 (dev) / 0.286 (private LB) · 3.4× real-time on CPU · 56% inference speedup',
@@ -191,7 +191,7 @@ function initProjects() {
             badge: 'Published Research'
         },
         {
-            title: 'Production-Grade Agentic RAG Platform',
+            title: 'Agentic RAG Platform',
             problem: 'Enterprise RAG systems degrade in production due to static single-shot retrieval, hallucinated citations, missing temporal context (stale documents), lack of access controls (RBAC leaks), and zero observability into intermediate tool reasoning.',
             constraint: 'Must execute dynamic multi-step query planning, enforce pre-retrieval SQL-layer RBAC filtering, validate citations against retrieved evidence chunks, maintain auditable conversation memory with expiry, and trace full telemetry via OpenTelemetry/Langfuse.',
             approach: 'Full-stack agentic architecture: Next.js + FastAPI → custom state-machine Planner (query decomposition & tool calls) → Hybrid retrieval (dense pgvector + lexical Postgres FTS fused via Reciprocal Rank Fusion) → Cross-encoder reranking (BGE-reranker-v2-m3) → Evidence sufficiency verification → Grounded generation with citation validation. Enforces SQL-level tenant isolation, short/long-term memory with conflict resolution, and CI/CD evaluation quality gates.',
@@ -204,8 +204,25 @@ function initProjects() {
             tags: ['Agentic RAG', 'FastAPI', 'pgvector', 'PostgreSQL FTS', 'Cross-Encoder', 'OpenTelemetry', 'Langfuse', 'Docker'],
             paper: null,
             demo: null,
-            code: 'https://github.com/AdilShamim8/Production-Grade-Agentic-RAG-Platform',
+            code: 'https://github.com/AdilShamim8/Agentic-RAG-Platform',
             badge: 'Production GenAI'
+        },
+        {
+            title: 'Agentic AI Eval Harness',
+            problem: 'CI regression gate for AI agents in production — agents fail silently due to prompt drift, stochastic LLM outputs, and brittle tool interactions. Standard unit tests cannot evaluate multi-step trajectories or isolate failure layers (agent vs evaluator vs infrastructure).',
+            constraint: 'Must test agents across 280 hash-pinned golden cases across multiple agent patterns (ReAct, Plan-and-Execute, Supervisor), enforce fail-closed CI gates with statistical significance (McNemar test), and maintain zero heavy runtime dependencies (single PyYAML dependency, Python ≥ 3.11).',
+            approach: 'Engineered an end-to-end evaluation & regression testing platform for AI agents: Adapter architecture (LangGraph, OpenAI Agents SDK, CrewAI, plain Python) → Trajectory capture & benchmark runner → Tri-tier evaluators (deterministic exact-match + κ-calibrated LLM-judge + behavioral verifiers) → Root-cause failure localization → Pytest bridge and CLI (agent-eval) with automated CI regression gates and ablation studies.',
+            numbers: '280 hash-pinned golden cases · 89.3% ReAct pass rate · McNemar significance testing · Zero bloat (single PyYAML dependency) · Fail-closed CI merge gates',
+            impact: [
+                { number: '280', label: 'Golden Test Cases' },
+                { number: '89.3%', label: 'ReAct Pass Rate' },
+                { number: '0', label: 'Heavy Dependencies' }
+            ],
+            tags: ['Agentic AI', 'AI Evaluation', 'LangGraph', 'pytest', 'CI/CD Gate', 'LLM-as-a-Judge', 'Python'],
+            paper: null,
+            demo: null,
+            code: 'https://github.com/AdilShamim8/Agentic-AI-Eval-Harness',
+            badge: 'Agentic AI'
         },
         {
             title: 'QuantScope',
