@@ -149,7 +149,7 @@ function initThemeToggle() {
     if (saved === 'dark' || saved === 'light') {
         applyTheme(saved);
     } else {
-        applyTheme(darkMediaQuery.matches ? 'dark' : 'light');
+        applyTheme('light');
     }
 
     toggle.addEventListener('click', function () {
@@ -174,84 +174,88 @@ function initProjects() {
     var projects = [
         {
             title: 'Bangla Diarizz',
-            problem: 'Bengali speaker diarization — no existing solution for real Bengali call center audio. Off-the-shelf pyannote achieved a DER of 35% on in-domain data, making it unusable for production deployments.',
-            constraint: 'Only 4 hours of labeled Bengali data. GPU-free inference required for cost-constrained deployments.',
-            approach: 'Targeted domain adaptation on the speaker embedding layer only, leaving the upstream VAD and segmentation stages intact to avoid catastrophic forgetting. Applied knowledge distillation to produce a lighter student model — transferring behavioral knowledge from the teacher without labeled data.',
-            numbers: 'DER 0.19 (dev) / 0.286 (private LB) · 3.4× real-time on CPU · 56% inference speedup',
-            improve: 'Extend labeled data via semi-supervised bootstrapping using the current model\'s own high-confidence outputs. Explore streaming inference for live call center audio, and benchmark against the newly released pyannote 3.1 backbone.',
+            shortDesc: 'Bengali speaker diarization for long-form audio.',
+            problem: 'Exploring speaker diarization for Bengali long-form audio where off-the-shelf models encounter elevated error rates on conversational in-domain audio.',
+            constraint: 'Limited labeled Bengali conversational data; evaluated under CPU execution conditions.',
+            approach: 'Targeted domain adaptation on the speaker embedding layer while keeping segmentation stages stable. Applied knowledge distillation to produce a lightweight student model.',
+            numbers: 'Reported DER 0.19 (dev) / 0.286 (private competition split) on test benchmarks · 3.4× real-time factor on CPU relative to uncompressed baseline',
+            improve: 'Extend labeled data via semi-supervised bootstrapping using high-confidence outputs. Explore streaming inference for conversational audio.',
             impact: [
-                { number: '56%', label: 'Faster Inference' },
+                { number: '3.4×', label: 'Real-Time CPU' },
                 { number: '0.19', label: 'DER (dev)' },
-                { number: '3.4×', label: 'Real-Time CPU' }
+                { number: 'Speech', label: 'Bengali Domain' }
             ],
             tags: ['PyTorch', 'pyannote', 'WeSpeaker', 'Knowledge Distillation'],
             paper: 'https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio',
             code: 'https://github.com/AdilShamim8/Bangla-Diarizz',
             demo: null,
-            badge: 'Published Research'
+            badge: 'Speech AI'
         },
         {
             title: 'Agentic RAG Platform',
-            problem: 'Enterprise RAG systems degrade in production due to static single-shot retrieval, hallucinated citations, missing temporal context (stale documents), lack of access controls (RBAC leaks), and zero observability into intermediate tool reasoning.',
-            constraint: 'Must execute dynamic multi-step query planning, enforce pre-retrieval SQL-layer RBAC filtering, validate citations against retrieved evidence chunks, maintain auditable conversation memory with expiry, and trace full telemetry via OpenTelemetry/Langfuse.',
-            approach: 'Full-stack agentic architecture: Next.js + FastAPI → custom state-machine Planner (query decomposition & tool calls) → Hybrid retrieval (dense pgvector + lexical Postgres FTS fused via Reciprocal Rank Fusion) → Cross-encoder reranking (BGE-reranker-v2-m3) → Evidence sufficiency verification → Grounded generation with citation validation. Enforces SQL-level tenant isolation, short/long-term memory with conflict resolution, and CI/CD evaluation quality gates.',
-            numbers: 'Hybrid RAG (Dense + BM25 via RRF) · BGE-v2 Cross-Encoder Reranking · Pre-retrieval SQL RBAC · OpenTelemetry + Langfuse Tracing · Golden dataset CI evaluation gates',
+            shortDesc: 'A reference implementation of document retrieval with access controls and citation checks.',
+            problem: 'Document retrieval systems risk retrieval degradation, uncited statements, and unauthorized cross-tenant document exposure.',
+            constraint: 'Requires dynamic query decomposition, SQL-layer tenant filtering in integration test suite, citation verification against retrieved chunks, and structured telemetry.',
+            approach: 'Reference implementation: Next.js + FastAPI with query planning, hybrid retrieval (dense pgvector + lexical Postgres full-text search fused via Reciprocal Rank Fusion), BGE cross-encoder reranking, and citation checks against retrieved evidence.',
+            numbers: 'Hybrid RAG (Dense + BM25 via RRF) · Cross-Encoder Reranking · Pre-retrieval SQL filtering (tenant isolation tested in integration tests) · OpenTelemetry & Langfuse tracing',
             impact: [
                 { number: 'RRF', label: 'Hybrid Fusion' },
-                { number: '100%', label: 'SQL-Layer RBAC' },
-                { number: 'Full', label: 'OTel + Langfuse Tracing' }
+                { number: 'SQL-layer', label: 'RBAC (Tested)' },
+                { number: 'OTel', label: 'Telemetry' }
             ],
             tags: ['Agentic RAG', 'FastAPI', 'pgvector', 'PostgreSQL FTS', 'Cross-Encoder', 'OpenTelemetry', 'Langfuse', 'Docker'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/Agentic-RAG-Platform',
-            badge: 'Production GenAI'
+            badge: 'Reference Implementation'
         },
         {
             title: 'Agentic AI Eval Harness',
-            problem: 'CI regression gate for AI agents in production — agents fail silently due to prompt drift, stochastic LLM outputs, and brittle tool interactions. Standard unit tests cannot evaluate multi-step trajectories or isolate failure layers (agent vs evaluator vs infrastructure).',
-            constraint: 'Must test agents across 280 hash-pinned golden cases across multiple agent patterns (ReAct, Plan-and-Execute, Supervisor), enforce fail-closed CI gates with statistical significance (McNemar test), and maintain zero heavy runtime dependencies (single PyYAML dependency, Python ≥ 3.11).',
-            approach: 'Engineered an end-to-end evaluation & regression testing platform for AI agents: Adapter architecture (LangGraph, OpenAI Agents SDK, CrewAI, plain Python) → Trajectory capture & benchmark runner → Tri-tier evaluators (deterministic exact-match + κ-calibrated LLM-judge + behavioral verifiers) → Root-cause failure localization → Pytest bridge and CLI (agent-eval) with automated CI regression gates and ablation studies.',
-            numbers: '280 hash-pinned golden cases · 89.3% ReAct pass rate · McNemar significance testing · Zero bloat (single PyYAML dependency) · Fail-closed CI merge gates',
+            shortDesc: 'Regression evaluation for multi-step AI agents.',
+            problem: 'Multi-step AI agents can fail silently due to prompt adjustments and non-deterministic model responses, requiring systematic trajectory regression testing.',
+            constraint: 'Must test agents across 280 hash-pinned golden cases across common agent patterns (ReAct, Plan-and-Execute), enforce fail-closed CI gates with statistical significance testing (McNemar), and minimize runtime dependencies.',
+            approach: 'Evaluation & regression harness: Adapter layer for agent frameworks → Trajectory capture & runner → Multi-tier evaluators (deterministic exact-match + calibrated LLM-judge + behavioral verifiers) → Root-cause localization and CLI (agent-eval) for CI merge gates.',
+            numbers: '280 hash-pinned golden cases · 89.3% ReAct pass rate (evaluated under deterministic mock/golden backend conditions) · McNemar significance testing · Single PyYAML dependency',
             impact: [
-                { number: '280', label: 'Golden Test Cases' },
-                { number: '89.3%', label: 'ReAct Pass Rate' },
-                { number: '0', label: 'Heavy Dependencies' }
+                { number: '280', label: 'Golden Cases' },
+                { number: '89.3%*', label: 'Deterministic Backend' },
+                { number: '1', label: 'Runtime Dep (PyYAML)' }
             ],
             tags: ['Agentic AI', 'AI Evaluation', 'LangGraph', 'pytest', 'CI/CD Gate', 'LLM-as-a-Judge', 'Python'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/Agentic-AI-Eval-Harness',
-            badge: 'Agentic AI'
+            badge: 'AI Evaluation'
         },
         {
             title: 'QuantScope',
-            problem: 'Quantitative stock analysis breaks when the AI provider goes down — runtime dependency on a single LLM is an unacceptable single point of failure for a financial tool.',
-            constraint: '35+ exchanges, 6 LLM providers, 33 automated tests. The LLM layer must be 100% replaceable without touching business logic.',
-            approach: 'Strict architectural separation: core/ (indicators, risk, data) has zero LLM dependencies. Engineered a 6-provider LLM fallback chain (OpenAI → Anthropic → Google → Ollama → Mistral → Cohere) with template-based fallback and a full monitoring stack — so analysis never silently fails when a provider is unavailable.',
-            numbers: '35+ exchanges · 6 LLM providers · 33 automated tests · Zero vendor lock-in · Full monitoring stack',
-            thesis: 'QuantScope sits at the intersection of my AI engineering and Finance interests — applying production-grade LLM resilience patterns to quantitative analysis tools where reliability is non-negotiable.',
+            shortDesc: 'Stock analysis with replaceable LLM providers and fallback handling.',
+            problem: 'Financial analysis tools relying on a single LLM API risk disruption when that provider encounters downtime or rate limits.',
+            constraint: 'Core analysis modules must function independently of any single LLM vendor, with automated tests covering calculations and provider fallbacks.',
+            approach: 'Separation of concerns: core calculation layer (indicators, risk metrics, data) has zero LLM dependencies. Built an orchestration layer with provider fallback chains and template-based fallback handling.',
+            numbers: 'Multi-provider LLM fallback chain · 33 automated tests · Decoupled quantitative core',
             impact: [
                 { number: '6', label: 'LLM Fallbacks' },
-                { number: '35+', label: 'Exchanges' },
-                { number: '33', label: 'Automated Tests' }
+                { number: '33', label: 'Automated Tests' },
+                { number: 'Core', label: 'Decoupled' }
             ],
             tags: ['Python', 'FastAPI', 'LangChain', 'Docker', 'pytest', 'Multi-LLM'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/QuantScope',
-            badge: 'AI × Finance'
+            badge: 'AI and Finance'
         },
         {
             title: 'Production ML Pipeline',
-            problem: 'Need a reproducible, versioned end-to-end ML pipeline for price prediction — not a one-off notebook.',
-            constraint: 'Must demonstrate full MLOps lifecycle: data versioning, experiment tracking, hyperparameter tuning, and containerized serving.',
-            approach: 'ZenML orchestration across ingest → preprocess → train → evaluate → register → serve stages. MLflow for experiment versioning and hyperparameter logging. Cross-validation and tuning in the training stage. Dockerized FastAPI inference service with structured logging and input validation.',
-            numbers: 'End-to-end pipeline · MLflow tracking · Cross-validation + tuning · Dockerized FastAPI serving',
+            shortDesc: 'A reproducible price-prediction pipeline with experiment tracking and API serving.',
+            problem: 'Machine learning workflows kept solely in notebooks lack automated stage transitions, reproducible runs, and versioned experiment tracking.',
+            constraint: 'Must implement structured pipeline stages: data ingestion, preprocessing, training, validation, experiment tracking, and containerized serving.',
+            approach: 'ZenML orchestration across ingest → preprocess → train → evaluate → register → serve stages. MLflow for experiment versioning and hyperparameter logging. Dockerized FastAPI inference service with structured request validation.',
+            numbers: 'Reproducible pipeline stages · MLflow experiment tracking · Cross-validation · Dockerized FastAPI serving',
             impact: [
                 { number: '6', label: 'Pipeline Stages' },
-                { number: '10%', label: 'Sales Lift' },
-                { number: '0', label: 'Manual Steps' }
+                { number: 'MLflow', label: 'Experiment Tracking' },
+                { number: 'Docker', label: 'FastAPI Serving' }
             ],
             tags: ['ZenML', 'MLflow', 'XGBoost', 'Docker', 'FastAPI'],
             paper: null,
@@ -261,54 +265,57 @@ function initProjects() {
         },
         {
             title: 'Training Data Bot',
-            problem: 'Fine-tuning LLMs requires clean, structured datasets — but manual curation is slow, inconsistent, and doesn\'t scale.',
-            constraint: 'Must handle heterogeneous inputs (PDF, plain text, URLs) and output clean, training-ready datasets with no manual curation step.',
-            approach: 'Automated ingestion pipeline: raw documents → quality scoring → formatting → structured output ready for fine-tuning runs. Demonstrates full LLM engineering lifecycle: data ingestion → preprocessing → quality filtering → structured dataset output.',
-            numbers: 'PDF · plain text · URL ingestion · Quality scoring · Fine-tuning ready output · Zero manual curation',
+            shortDesc: 'Document processing for fine-tuning dataset preparation.',
+            problem: 'Preparing fine-tuning datasets from varied source formats requires parsing, chunking, and formatting into instruction-response pairs.',
+            constraint: 'Ingests PDF, plain text, and web URLs and outputs structured JSONL datasets formatted for LLM fine-tuning runs.',
+            approach: 'Automated document pipeline: raw file ingestion, text extraction, rule-based filtering heuristics, and structured schema formatting for fine-tuning datasets.',
+            numbers: 'Multi-format document parsing · Rule-based heuristic filtering · JSONL dataset formatting',
             impact: [
                 { number: '3', label: 'Input Formats' },
-                { number: '0', label: 'Manual Curation' },
-                { number: '100%', label: 'Automated' }
+                { number: 'JSONL', label: 'Dataset Format' },
+                { number: 'Rules', label: 'Heuristic Filters' }
             ],
             tags: ['LLM Engineering', 'Fine-Tuning', 'PDF Ingestion', 'Quality Scoring', 'Python'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/Training-Data-Bot',
-            badge: 'LLM Engineering'
+            badge: 'Data Preparation'
         },
         {
             title: 'NeuroBridge',
-            problem: 'Connecting LLMs to real-world applications and APIs is brittle and lacks standardized middleware for reliable agentic actions.',
-            constraint: 'Must handle unpredictable LLM outputs and reliably route them to appropriate tools/actions without human intervention.',
-            approach: 'Built a middleware layer bridging LLMs with real-world applications for seamless agentic integration, standardizing tool calling and error handling.',
-            numbers: 'Agentic routing · Seamless API integration · Extensible tool architecture',
+            shortDesc: 'Middleware connecting language models with application APIs.',
+            problem: 'Direct connection between language model outputs and external APIs requires intermediate translation, schema validation, and error recovery.',
+            constraint: 'Must parse structured tool calls, map them to external API endpoints, and handle malformed outputs gracefully.',
+            approach: 'Middleware routing layer standardizing schema translation between LLM function calls and REST application endpoints with structured error handling.',
+            numbers: 'API schema translation · Tool dispatching · Structured error recovery',
             impact: [
-                { number: '100%', label: 'Extensible' },
-                { number: '0', label: 'Manual Routing' },
-                { number: '24/7', label: 'Availability' }
+                { number: 'REST', label: 'API Dispatch' },
+                { number: 'Schema', label: 'Translation' },
+                { number: 'Modular', label: 'Architecture' }
             ],
             tags: ['LangGraph', 'Agentic AI', 'API Integration', 'Middleware'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/NeuroBridge',
-            badge: 'Agentic AI'
+            badge: 'Agent Tooling'
         },
         {
-            title: 'Transformer Architecture (nanoGPT)',
-            problem: 'Using LLMs via APIs abstracts away the fundamental architecture, limiting the ability to debug, optimize, or customize models at a low level.',
-            constraint: 'Need to exactly replicate the architecture and training dynamics of a landmark model (GPT-2) from scratch.',
-            approach: 'Step-by-step reproduction of nanoGPT and GPT-2. Implemented custom causal self-attention, layer normalization, weight initialization, and training loops.',
-            numbers: 'GPT-2 architecture · Custom attention mechanisms · PyTorch from scratch',
+            title: 'Transformer Architecture',
+            shortDesc: 'A PyTorch reproduction of GPT-2 based on nanoGPT.',
+            problem: 'Using LLMs exclusively through APIs abstracts away fundamental architecture, limiting low-level inspection and custom model training.',
+            constraint: 'Reconstruct core transformer blocks from first principles in PyTorch, referencing Andrej Karpathy\'s educational nanoGPT implementation.',
+            approach: 'Step-by-step educational reproduction: implemented custom multi-head causal self-attention, layer normalization, residual connections, and training loop in PyTorch.',
+            numbers: 'GPT-2 architecture (124M parameter configuration) · Educational reproduction · Credited to Andrej Karpathy\'s nanoGPT',
             impact: [
-                { number: '100%', label: 'From Scratch' },
-                { number: '124M', label: 'Params' },
-                { number: '1', label: 'Transformer' }
+                { number: 'PyTorch', label: 'From Scratch' },
+                { number: '124M', label: 'Param Config' },
+                { number: 'nanoGPT', label: 'Original Source' }
             ],
             tags: ['PyTorch', 'Transformers', 'Deep Learning', 'Custom Training'],
             paper: null,
             demo: null,
             code: 'https://github.com/AdilShamim8/GPT-2-Rebuild-nanoGPT',
-            badge: 'Deep Learning'
+            badge: 'Learning Project'
         }
     ];
 
@@ -324,7 +331,7 @@ function initProjects() {
         // Build Links
         var linksHtml = '';
         if (project.paper) {
-            linksHtml += '<a href="' + project.paper + '" class="accordion-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Paper <i class="fas fa-arrow-up-right-from-square link-arrow"></i></a>';
+            linksHtml += '<a href="' + project.paper + '" class="accordion-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> View manuscript <i class="fas fa-arrow-up-right-from-square link-arrow"></i></a>';
         }
         if (project.demo) {
             linksHtml += '<a href="' + project.demo + '" class="accordion-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo <i class="fas fa-arrow-up-right-from-square link-arrow"></i></a>';
@@ -343,11 +350,11 @@ function initProjects() {
 
         var badgeHtml = project.badge ? '<span class="accordion-badge">' + project.badge + '</span>' : '';
 
-        // Only display the first part of the problem for the header
-        var headerDescription = project.problem.split('—')[0] || project.problem;
+        // Display standardized short description
+        var headerDescription = project.shortDesc || project.problem.split('—')[0] || project.problem;
 
         item.innerHTML = 
-            '<button class="accordion-header" aria-expanded="false">' +
+            '<button class="accordion-header" id="acc-btn-' + index + '" aria-expanded="false" aria-controls="acc-panel-' + index + '">' +
                 '<span class="accordion-num">' + projectNum + '</span>' +
                 '<div class="accordion-title-wrap">' +
                     '<h3 class="accordion-title">' + project.title + '</h3>' +
@@ -356,7 +363,7 @@ function initProjects() {
                 '<span class="accordion-desc-short">' + headerDescription + '</span>' +
                 '<span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>' +
             '</button>' +
-            '<div class="accordion-body">' +
+            '<div class="accordion-body" id="acc-panel-' + index + '" role="region" aria-labelledby="acc-btn-' + index + '">' +
                 '<div class="accordion-body-inner">' +
                     '<div class="accordion-col-left">' +
                         '<div class="accordion-section">' +
@@ -397,8 +404,14 @@ function initProjects() {
             var allItems = accordionContainer.querySelectorAll('.accordion-item');
             allItems.forEach(function(otherItem) {
                 if (otherItem !== item) {
+                    var otherBody = otherItem.querySelector('.accordion-body');
                     otherItem.classList.remove('active');
                     otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                    if (otherBody) {
+                        otherBody.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach(function(el) {
+                            el.setAttribute('tabindex', '-1');
+                        });
+                    }
                     var icon = otherItem.querySelector('.accordion-icon i');
                     icon.classList.remove('fa-chevron-up');
                     icon.classList.add('fa-chevron-down');
@@ -406,20 +419,39 @@ function initProjects() {
             });
 
             // Toggle current accordion
+            var body = item.querySelector('.accordion-body');
             if (!isExpanded) {
                 item.classList.add('active');
                 this.setAttribute('aria-expanded', 'true');
+                if (body) {
+                    body.querySelectorAll('[tabindex="-1"]').forEach(function(el) {
+                        el.removeAttribute('tabindex');
+                    });
+                }
                 var icon = this.querySelector('.accordion-icon i');
                 icon.classList.remove('fa-chevron-down');
                 icon.classList.add('fa-chevron-up');
             } else {
                 item.classList.remove('active');
                 this.setAttribute('aria-expanded', 'false');
+                if (body) {
+                    body.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach(function(el) {
+                        el.setAttribute('tabindex', '-1');
+                    });
+                }
                 var icon = this.querySelector('.accordion-icon i');
                 icon.classList.remove('fa-chevron-up');
                 icon.classList.add('fa-chevron-down');
             }
         });
+
+        // Ensure focusable children in closed panels start hidden
+        var initialBody = item.querySelector('.accordion-body');
+        if (initialBody) {
+            initialBody.querySelectorAll('a, button, input, select, textarea').forEach(function(el) {
+                el.setAttribute('tabindex', '-1');
+            });
+        }
 
         fragment.appendChild(item);
     });
@@ -495,6 +527,7 @@ function initImageLightbox() {
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-label', 'Expanded image viewer');
     overlay.innerHTML =
         '<button class="lightbox-close" type="button" aria-label="Close expanded image">&times;</button>' +
         '<img class="lightbox-image" alt="Expanded image">';

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Story & Books — Adil Shamim</title>
     <meta name="description"
-        content="The story of Adil Shamim — Founder of ReWoo, CTO of a UK Fintech, Student Researcher at ELITE Research Lab, and Kaggle Master building production AI systems.">
+        content="The personal story of Adil Shamim — AI/ML engineer and founder of ReWoo, CTO at FinAI8, and Student Researcher at ELITE Research Lab.">
     <meta name="author" content="Adil Shamim">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
@@ -624,14 +624,6 @@
             }
         }
 
-        /* Override centered title */
-        .story-title {
-            text-align: center;
-            font-size: clamp(1.875rem, 4.5vw, 2.625rem);
-            font-style: italic;
-            margin-bottom: 0;
-        }
-
         /* Small accent label above the title */
         .story-overline {
             font-size: 0.75rem;
@@ -643,24 +635,72 @@
             text-align: center;
         }
 
-        /* Constrained essay container — centered on page, text reads left */
-        .story-essay-wrap {
-            max-width: 660px;
-            margin: 0 auto;
+        /* Centered italic title matching reference */
+        .story-title {
+            text-align: center;
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: clamp(1.875rem, 4.5vw, 2.625rem);
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            margin-bottom: 24px;
         }
 
-        /* Essay body */
+        /* Constrained essay container — centered reading column 680–760px */
+        .story-essay-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Hero image — 16:9 cinematic landscape banner matching reference style */
+        .story-hero-image {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto 36px;
+            border-radius: var(--radius-xl, 20px);
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+        }
+
+        .story-photo {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-radius: inherit;
+            transition: transform var(--transition-slow, 0.35s ease);
+        }
+
+        .story-hero-image:hover .story-photo,
+        .story-photo:hover {
+            transform: scale(1.02);
+        }
+
+        [data-theme="dark"] .story-hero-image {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+            border-color: var(--border);
+        }
+
+        /* Essay body — readable serif with comfortable line & paragraph spacing */
         .story-essay {
-            margin-top: 36px;
+            margin-top: 28px;
+            font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
         }
 
         /* Each paragraph in the essay */
         .story-essay p {
-            font-size: 1rem;
-            line-height: 1.875;
-            color: var(--text-secondary);
-            margin-bottom: 1.4em;
-            letter-spacing: -0.01em;
+            font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 1.35rem;
             text-align: left;
         }
 
@@ -674,13 +714,44 @@
         }
 
         .story-essay a {
-            color: var(--accent);
+            color: var(--text);
             text-decoration: underline;
             text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color var(--transition), text-decoration-color var(--transition);
         }
 
         .story-essay a:hover {
-            color: var(--accent-hover);
+            color: var(--accent);
+            text-decoration-thickness: 2px;
+        }
+
+        .story-essay a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        /* Opening quote */
+        .story-blockquote {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text);
+            border-left: 3px solid var(--accent);
+            background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+            padding: 20px 24px;
+            margin: 0 0 28px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .story-blockquote p {
+            font-family: inherit;
+            font-size: inherit;
+            font-style: inherit;
+            line-height: 1.6;
+            color: inherit;
+            margin-bottom: 0 !important;
         }
 
         /* Closing sentence — serif italic, centered for emphasis */
@@ -691,27 +762,67 @@
             color: var(--text);
             border-top: 1px solid var(--border-light);
             padding-top: 28px;
-            margin-top: 8px;
+            margin-top: 28px;
+            margin-bottom: 0;
             text-align: center;
         }
 
-        /* ── Modern Blockquote ── */
-        .story-blockquote {
-            font-family: 'Newsreader', Georgia, serif;
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--text);
-            border-left: 4px solid var(--accent);
-            background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
-            padding: 24px 32px;
-            margin: 32px 0 40px 0;
-            border-radius: 0 12px 12px 0;
+        /* Reading document card */
+        .story-books-cta {
+            margin-top: 36px;
+            margin-bottom: 8px;
+            text-align: center;
+            padding: 32px 28px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
         }
-        .story-blockquote p {
-            margin-bottom: 0 !important;
-            font-size: inherit !important;
-            color: inherit !important;
-            line-height: 1.6 !important;
+
+        .story-books-cta p {
+            font-family: inherit;
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .story-books-btn {
+            display: inline-block;
+            padding: 10px 28px;
+            background: var(--text);
+            color: var(--bg) !important;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none !important;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .story-books-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .story-title {
+                font-size: 1.85rem;
+                margin-bottom: 18px;
+            }
+
+            .story-essay p {
+                font-size: 1.0625rem;
+                line-height: 1.6;
+                margin-bottom: 1.25rem;
+            }
+
+            .story-hero-image {
+                border-radius: 14px;
+                margin-bottom: 24px;
+            }
+
+            .story-photo {
+                border-radius: 14px;
+            }
         }
     </style>
 </head>
@@ -735,12 +846,14 @@
                 <!-- Primary navigation links -->
                 <ul class="nav-menu" id="primary-menu" aria-label="Primary">
                     <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#projects" class="nav-link">Work</a></li>
+                    <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="index.html#writing" class="nav-link">Writing</a></li>
                     <li><a href="index.html#research" class="nav-link">Research</a></li>
-                    <li><a href="index.html#about" class="nav-link">About</a></li>
                     <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                     <!-- "active" class highlights the current page in the nav -->
                     <li><a href="My_Story.html" class="nav-link active">My Story</a></li>
+                    <li><a href="assets/docs/AdilShamim_AI_Engineer_Resume.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
                 </ul>
 
                 <!-- Light / dark mode toggle button -->
@@ -772,74 +885,70 @@
             <div class="container">
                 <div class="story-essay-wrap">
 
-                    <!-- Small overline label -->
-                    <p class="story-overline">My life story</p>
+                    <!-- Small accent label above title -->
+                    <p class="story-overline">MY LIFE STORY</p>
 
-                    <!-- Page h1 — only one per page for SEO -->
+                    <!-- Page h1 -->
                     <h1 class="story-title">My life story (so far)</h1>
 
                     <!-- Hero photo -->
                     <div class="story-hero-image">
-                        <img src="assets/images/My_Story.jpeg" alt="Adil Shamim" class="story-photo" loading="eager"
-                            decoding="async">
+                        <img src="assets/images/My_Story.jpeg" alt="Adil Shamim — My Life Story" class="story-photo"
+                            width="720" height="405" loading="eager" decoding="async">
                     </div>
 
                     <!-- Long-form essay -->
                     <div class="story-essay">
-
-                        <blockquote class="story-blockquote reveal">
-                            <p>A friend once reminded me that my story is what sets me apart. For a long time, I hesitated
-                                to embrace it — but they were right. So, here is a short, honest account of how I got here.
-                            </p>
+                        <blockquote class="story-blockquote">
+                            <p>A friend once reminded me that my story is what sets me apart. For a long time, I hesitated to embrace it — but they were right. So, here is a short, honest account of how I got here.</p>
                         </blockquote>
 
-                        <p class="reveal">I grew up in Dhaka, Bangladesh.</p>
+                        <p>I was born into a lower-middle-class family in a small village in Bangladesh.</p>
 
-                        <p class="reveal">My interest in computers started early, but it took university to turn that curiosity into disciplined engineering.</p>
+                        <p>There weren’t good schools nearby, so at eight, I moved away from my parents to live with my maternal uncle in the city.</p>
 
-                        <p class="reveal">I joined BNIST in February 2023 to study Computer Science &amp; Engineering. The first semester was a recalibration. Linear algebra, probability, and data structures were suddenly more than subjects — they were the vocabulary of a discipline I wanted to master.</p>
+                        <p>School was difficult for me. For years, I failed term exams and barely passed my finals. I never repeated a grade, but I came close.</p>
 
-                        <p class="reveal">I started building things. Small scripts, then models, then full pipelines.</p>
+                        <p>Things changed in grade nine. I became the class topper and the class captain. Being responsible for others pushed me to take responsibility for myself. I began taking my studies seriously and became more involved in student leadership.</p>
 
-                        <p class="reveal">My first serious project was a hybrid recommendation system for a local business — a mix of collaborative filtering and content-based embeddings. It wasn't glamorous, but it worked. It produced a <strong>10% increase in sales</strong> over three months. That result told me everything I needed to know: production systems are where real learning happens.</p>
+                        <p>In grade ten, I found something I loved: writing. I started with a short story, then began writing blog posts.</p>
 
-                        <p class="reveal">I joined Kaggle not long after to test my models against the best in the world. What started as casual practice became something I took seriously across 30 competitions. I crafted story-driven notebooks that turned raw data exploration and machine learning into intuitive experiences. A <strong>Top 1% finish</strong> — 29th out of 4,082 teams — in Road Accident Risk prediction earned me the <strong>Kaggle Master</strong> rank.</p>
+                        <p>After high school, I took a less conventional path. I entered grade eleven and also enrolled in a four-year Computer Science program. Looking back, I understand why that decision might have seemed unwise. But it changed the direction of my life, and I’m grateful to my younger self for taking that chance.</p>
 
-                        <p class="reveal">In mid-2025, I noticed that most AI directories charged creators just to get listed. I decided to build one where they didn't, and shipped the entire product solo.</p>
+                        <p>At the time, I knew very little about computer science. Then I bought my first computer and fell in love with it. I began learning to program and discovering that I could use this machine to solve problems.</p>
 
-                        <p class="reveal">That became <strong><a href="https://www.toolly.tech/" target="_blank" rel="noopener">Toolly</a></strong> — an AI tools discovery platform featuring 400+ curated tools across 15 categories, an automated submission pipeline, and a Learn AI hub. I built it solo across 200+ commits, maintained it for 11 months, and then open-sourced it entirely for the community.</p>
+                        <p>I still remember taking Harvard’s CS50 online. I spent much of my day studying, working through assignments, and trying to understand why my code didn’t work. Some nights, I slept only six hours because I wanted to keep going. After six months, I completed the course and earned my certificate.</p>
 
-                        <p class="reveal">While building products, I was also researching.</p>
+                        <p>As I learned more, I became curious about a different question: how could machines learn?</p>
 
-                        <p class="reveal">I led a project that became a first-author conference paper: <strong><a href="https://www.researchgate.net/publication/401194830_Bangla_Diarizz_Domain-Adapted_Speaker_Diarization_for_Bengali_Long-Form_Audio" target="_blank" rel="noopener">Bangla Diarizz</a></strong> — a domain-adapted speaker diarization system for Bengali long-form audio, presented at <strong>BUET CSE Fest 2026</strong>. Using knowledge distillation, we achieved a Diarization Error Rate of 0.19, ran at 3.4&times; real-time on CPU, and delivered a <strong>56% inference speedup</strong> — making speech AI accessible to 230 million native speakers who had almost nothing built for them.</p>
+                        <p>That curiosity led me to an online machine learning course from Stanford. I wanted to understand how a computer could learn from examples and use that knowledge to do something useful.</p>
 
-                        <p class="reveal">That project taught me that low-resource problems are the most creative ones. Building systems where almost no labeled data exists forces a different kind of engineering discipline.</p>
+                        <p>Eventually, I wanted to do more than complete courses. I wanted to build something of my own.</p>
 
-                        <p class="reveal">In early 2026, I joined the founding team of a UK-based fintech startup. I started as an AI intern, became an AI Engineer, and was appointed <strong>Chief Technology Officer (CTO)</strong>. We built production Finance AI agents that handle real money and real consequences. In finance, hallucinations are fatal; every agent graph, deterministic pipeline, and microservice has to be strictly reliable, observable, and compliant.</p>
+                        <p>That became <a href="https://www.toolly.tech/" target="_blank" rel="noopener">Toolly</a>, a website bringing AI tools, platforms, and learning resources together in one place. It grew to around 4,000 monthly visitors and is now open source.</p>
 
-                        <p class="reveal">That experience crystallized what was coming next: the future of work isn't humans clicking tools, but autonomous agents executing entire business operations.</p>
+                        <p>Building it helped me discover how much I enjoy the whole process: understanding a problem, making a product, talking with customers, and trying to sell what I’ve built.</p>
 
-                        <p class="reveal">In July 2026, I founded <strong><a href="https://rewoo.tech/" target="_blank" rel="noopener">ReWoo</a></strong> — an AI-workforce startup that deploys autonomous agents to run entire business functions for companies. We focused ruthlessly on execution. <strong>First paying client in 10 days. That client was in the UK.</strong></p>
+                        <p>Today, I’m building <a href="https://rewoo.tech/" target="_blank" rel="noopener">ReWoo</a>, leading product development as CTO at <a href="https://finai8.com/" target="_blank" rel="noopener">FinAI8</a>, and working as a Student Researcher at <a href="https://elitelab.ai/" target="_blank" rel="noopener">ELITE Research Lab</a>.</p>
 
-                        <p class="reveal">Around the same time, I joined <strong><a href="https://elitelab.ai/" target="_blank" rel="noopener">ELITE Research Lab LLC</a></strong> (Queens, New York &middot; Remote) as a <strong>Student Researcher</strong>. Working in Educational Research, I investigate machine learning models and cognitive architectures for intelligent learning systems — keeping my engineering grounded in empirical research.</p>
+                        <p>There’s another part of my life that matters just as much: reading.</p>
 
-                        <p class="reveal">Running ReWoo, researching at ELITE, building production finance agents, and staying at the edge of machine learning is a constant juggle.</p>
+                        <p>I read whatever catches my curiosity—fiction, science, technology, philosophy, world classics, and literature from different places. I don’t like limiting myself to one subject.</p>
 
-                        <p class="reveal">But I have learned that momentum is its own reward.</p>
+                        <p>For a long time, books were my closest friends. I spent hours with them, finding ideas and perspectives I might never have encountered otherwise. Books make for great friends.</p>
 
-                        <p class="reveal">My operating philosophy is simple: <strong>Build it. Ship it. Make it earn.</strong> Every system I touch must be reliable, observable, and defensible under real constraints. Not impressive in a notebook. Useful in the world. I believe that 60–70% of AI/ML work is disciplined software engineering, and I take that part just as seriously as the modeling.</p>
+                        <p>Writing gives me a place to think about what I’ve read, what I’m learning, and what I’m trying to build.</p>
 
-                        <p class="reveal">If you are building something ambitious, I would love to connect. <a href="mailto:adilshamim696@gmail.com">Shoot me an email</a>, and let's talk.</p>
+                        <p>That’s what I want to share here.</p>
 
-                        <p class="reveal">When I do deep work, I listen to music to stay focused. You can check out my playlists on my <a href="https://open.spotify.com/user/31tes3nwdkr5ueeoouuvlhk2bqlm?si=d6b542971edc4a27" target="_blank" rel="noopener" style="text-decoration: underline;">Spotify account</a>.</p>
+                        <p>When I do deep work, I listen to music to stay focused. You can check out my playlists on my <a href="https://open.spotify.com/user/31tes3nwdkr5ueeoouuvlhk2bqlm?si=d6b542971edc4a27" target="_blank" rel="noopener">Spotify account</a>.</p>
 
-                        <p class="story-closing reveal">I spent a lot of time reading. My only real friends were books. Books make for great friends.</p>
+                        <p class="story-closing">I spent a lot of time reading. My only real friends were books. Books make for great friends.</p>
 
-                        <div class="reveal" style="margin-top: 50px; text-align: center; padding: 32px 28px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-light);">
-                            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.6;">Here is the document where I’ll keep track of all the books I’ve read!</p>
-                            <a href="books/all-books.html" style="display: inline-block; padding: 12px 28px; background: var(--text); color: var(--bg); border-radius: 8px; font-weight: 500; text-decoration: none; transition: transform 0.2s;">Open &rarr;</a>
+                        <div class="story-books-cta">
+                            <p>Here is the document where I’ll keep track of all the books I’ve read!</p>
+                            <a href="books/all-books.html" class="story-books-btn">Open &rarr;</a>
                         </div>
-
                     </div><!-- end .story-essay -->
                 </div><!-- end .story-essay-wrap -->
             </div>

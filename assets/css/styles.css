@@ -213,9 +213,9 @@ button {
 }
 
 .nav-container {
-    max-width: 1080px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -223,10 +223,10 @@ button {
 }
 
 .nav-logo {
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--text);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     transition: opacity var(--transition);
 }
 
@@ -244,15 +244,15 @@ button {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
 }
 
 .nav-link {
-    font-size: 0.875rem;
+    font-size: 0.84rem;
     font-weight: 500;
     color: var(--text-secondary);
-    padding: 8px 14px;
-    border-radius: 8px;
+    padding: 6px 9px;
+    border-radius: 6px;
     transition: color var(--transition), background-color var(--transition);
 }
 
@@ -761,22 +761,28 @@ button {
 
 .story-hero-image {
     width: 100%;
-    max-width: 700px;
-    margin: 0 auto 48px;
+    max-width: 720px;
+    margin: 0 auto 36px;
     border-radius: var(--radius-xl);
     overflow: hidden;
     aspect-ratio: 16 / 9;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-light);
+    background: var(--bg-secondary);
 }
 
 .story-photo {
     width: 100%;
     height: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
+    object-position: center;
     display: block;
-    cursor: zoom-in;
+    border-radius: inherit;
     transition: transform var(--transition-slow);
 }
 
+.story-hero-image:hover .story-photo,
 .story-photo:hover {
     transform: scale(1.02);
 }
@@ -1146,6 +1152,7 @@ button {
 .arc-timeline {
     display: flex;
     flex-direction: column;
+    margin-top: 1.75rem;
 }
 
 .arc-item {
@@ -1165,7 +1172,9 @@ button {
     flex-shrink: 0;
     text-align: right;
     padding-right: 20px;
-    padding-top: 4px;
+    padding-top: 2px;
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
 }
 
 .arc-divider {
@@ -1182,7 +1191,7 @@ button {
     height: 8px;
     background-color: var(--text);
     border-radius: 50%;
-    margin-top: 8px;
+    margin-top: 6px;
     position: relative;
     z-index: 2;
 }
@@ -1191,7 +1200,11 @@ button {
     width: 1px;
     background-color: var(--border);
     flex-grow: 1;
-    margin-top: 8px;
+    margin-top: 6px;
+}
+
+.arc-item:last-child .arc-line {
+    display: none;
 }
 
 .arc-content {
@@ -1212,6 +1225,7 @@ button {
     font-weight: 600;
     color: var(--text);
     letter-spacing: -0.01em;
+    line-height: 1.3;
 }
 
 .arc-badge {
@@ -1219,6 +1233,7 @@ button {
     padding: 2px 10px;
     border-radius: 999px;
     font-weight: 500;
+    letter-spacing: 0.02em;
 }
 
 .badge-dark {
@@ -1236,13 +1251,43 @@ button {
     font-size: 0.875rem;
     color: var(--text-tertiary);
     margin-bottom: 12px;
+    line-height: 1.4;
 }
 
 .arc-desc {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 640px;
+}
+
+.arc-desc p {
+    margin: 0 0 10px 0;
+    line-height: 1.55;
+}
+
+.arc-desc p:last-child {
+    margin-bottom: 0;
+}
+
+.arc-desc strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.arc-company a,
+.arc-desc a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+.arc-company a:hover,
+.arc-desc a:hover {
+    color: var(--accent);
+    text-decoration-thickness: 2px;
 }
 
 @media (max-width: 768px) {
@@ -2067,6 +2112,25 @@ button {
     transform: translateY(0);
 }
 
+/* Reduced motion: skip all animations, ensure content is visible */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .fade-in.delay-1,
+    .fade-in.delay-2,
+    .fade-in.delay-3,
+    .fade-in.delay-4 {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 /* ===== PROJECT IMPACT METRIC ===== */
 .project-impact-metric {
     display: flex;
@@ -2142,7 +2206,7 @@ button {
     }
 
     .story-hero-image {
-        max-width: 900px;
+        max-width: 720px;
     }
 
     .story-content {
@@ -4131,4 +4195,473 @@ a.hero-cred-pill:hover {
     margin-top: 3px;
     flex-shrink: 0;
     font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   PERSONAL ENGINEER HOMEPAGE STYLES
+   ========================================================================== */
+
+/* Main centered column: 780–820px */
+.content-container,
+.intro-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Introduction Section */
+.intro-section {
+    padding-top: 130px;
+    padding-bottom: 24px;
+}
+
+.intro-prose {
+    font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.55;
+    color: var(--text);
+}
+
+.intro-photo-wrap {
+    float: right;
+    margin: 4px 0 20px 32px;
+}
+
+.intro-photo,
+img.intro-photo,
+.hero-photo.intro-photo,
+.vision-jobs .intro-photo,
+.vision-jobs .hero-photo.intro-photo {
+    width: 235px !important;
+    height: 235px !important;
+    max-width: 235px !important;
+    max-height: 235px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    object-position: center 15% !important;
+    display: block !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid var(--border-light) !important;
+    filter: none !important;
+    cursor: zoom-in;
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.intro-photo:hover,
+img.intro-photo:hover,
+.hero-photo.intro-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.intro-prose p {
+    margin: 0 0 1.25rem 0;
+}
+
+/* Recognizable text links with accessible contrast and hover/focus states */
+.intro-prose a,
+.exp-org a,
+.research-link,
+.section-footer-link a,
+.contact-val {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+.intro-prose a:hover,
+.exp-org a:hover,
+.research-link:hover,
+.section-footer-link a:hover,
+.contact-val:hover {
+    color: var(--accent);
+    text-decoration-thickness: 2px;
+}
+
+.intro-prose a:focus-visible,
+.exp-org a:focus-visible,
+.research-link:focus-visible,
+.section-footer-link a:focus-visible,
+.contact-val:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Clearfix for floated portrait */
+.intro-prose::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Simple text links below intro: Resume · LinkedIn · GitHub */
+.intro-quick-links {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    color: var(--text-tertiary);
+}
+
+.intro-quick-links a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.intro-quick-links a:hover {
+    color: var(--accent);
+    text-decoration-thickness: 2px;
+}
+
+/* Responsive: stack portrait and intro on mobile */
+@media (max-width: 768px) {
+    .intro-section {
+        padding-top: 100px;
+    }
+
+    .intro-photo-wrap {
+        float: none;
+        margin: 0 auto 24px auto;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .intro-photo,
+    img.intro-photo,
+    .hero-photo.intro-photo,
+    .vision-jobs .intro-photo,
+    .vision-jobs .hero-photo.intro-photo {
+        width: 190px !important;
+        height: 190px !important;
+        max-width: 190px !important;
+        max-height: 190px !important;
+        aspect-ratio: 1 / 1 !important;
+        border-radius: 50% !important;
+        margin: 0 auto !important;
+    }
+
+    .intro-prose {
+        font-size: 1.0625rem; /* ~17px on mobile for optimal line length */
+        line-height: 1.55;
+    }
+}
+
+/* Section styling below intro */
+.content-section {
+    padding-top: 12px;
+    padding-bottom: 44px;
+}
+
+.section-divider {
+    height: 1px;
+    background: var(--border-light);
+    margin-bottom: 2.25rem;
+}
+
+.section-heading {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.section-subtext {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+}
+
+/* 1. Experience */
+.exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.exp-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.exp-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.exp-role-wrap {
+    font-size: 1.025rem;
+    color: var(--text);
+}
+
+.exp-role {
+    font-weight: 600;
+}
+
+.exp-sep {
+    margin: 0 0.35rem;
+    color: var(--text-tertiary);
+}
+
+.exp-org {
+    font-weight: 500;
+}
+
+.exp-loc {
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    margin-left: 0.25rem;
+}
+
+.exp-date {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+}
+
+.exp-desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .exp-header-row,
+    .research-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+
+    .writing-item {
+        padding: 1.1rem 1.25rem;
+    }
+}
+
+/* 2. Projects section adjustments */
+#projects .projects-accordion {
+    margin-top: 1rem;
+}
+
+.section-footer-link {
+    margin-top: 1.75rem;
+    font-size: 0.9375rem;
+}
+
+.noscript-projects {
+    padding-left: 1.25rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* 3. Writing */
+.writing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+    margin-top: 1rem;
+}
+
+.writing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.35rem 1.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    gap: 1.25rem;
+}
+
+.writing-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+.writing-item:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.writing-main {
+    flex: 1;
+}
+
+.writing-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.35rem;
+}
+
+.writing-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.writing-badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 2.5px 8px;
+    border-radius: 6px;
+    background: #ecfdf5;
+    color: #059669;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+}
+
+[data-theme="dark"] .writing-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+}
+
+.writing-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.writing-arrow {
+    font-size: 1.15rem;
+    color: var(--text-tertiary);
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.writing-item:hover .writing-arrow {
+    color: #059669;
+    transform: translate(2px, -2px);
+}
+
+[data-theme="dark"] .writing-item {
+    background: var(--bg-secondary);
+    border-color: var(--border);
+}
+
+[data-theme="dark"] .writing-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .writing-item:hover .writing-arrow {
+    color: #34d399;
+}
+
+/* 4. Research */
+.research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.research-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.research-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.research-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.research-year {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    font-variant-numeric: tabular-nums;
+}
+
+.research-venue {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 0;
+}
+
+.research-desc {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.research-actions {
+    margin-top: 0.25rem;
+}
+
+.research-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* 5. Contact */
+.contact-lead {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-links-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+.contact-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+}
+
+.contact-val {
+    font-size: 0.925rem;
+    font-weight: 500;
+    word-break: break-all;
 }
